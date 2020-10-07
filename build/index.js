@@ -1592,6 +1592,95 @@ var variations = [{
 
 /***/ }),
 
+/***/ "./src/dotted-labels/edit.css":
+/*!************************************!*\
+  !*** ./src/dotted-labels/edit.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/dotted-labels/edit.js":
+/*!***********************************!*\
+  !*** ./src/dotted-labels/edit.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _edit_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit.css */ "./src/dotted-labels/edit.css");
+/* harmony import */ var _edit_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_edit_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function edit3(_ref) {
+  var attributes = _ref.attributes,
+      setAttributes = _ref.setAttributes;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "selleads-label--object"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "selleads-label--item"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "selleads-label-dot"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", null, "Dot")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "selleads-label-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h5", {
+    className: "selleads-label--header"
+  }, "Hello world"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+    className: "selleads-label--content"
+  }, "Ala ma kota, a kot ma al\u0119"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+    className: "selleads-label--content"
+  }, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (edit3);
+
+/***/ }),
+
+/***/ "./src/dotted-labels/save.js":
+/*!***********************************!*\
+  !*** ./src/dotted-labels/save.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save3; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function save3() {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads – hello from the saved content!', 'selleads'));
+}
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -1612,6 +1701,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _column_save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./column/save */ "./src/column/save.js");
 /* harmony import */ var _columns_ColumnsEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./columns/ColumnsEdit */ "./src/columns/ColumnsEdit.js");
 /* harmony import */ var _columns_save2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./columns/save2 */ "./src/columns/save2.js");
+/* harmony import */ var _dotted_labels_edit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dotted-labels/edit */ "./src/dotted-labels/edit.js");
+/* harmony import */ var _dotted_labels_save__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dotted-labels/save */ "./src/dotted-labels/save.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -1638,6 +1729,8 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
+
+
 
 
 
@@ -1803,6 +1896,50 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('sel
    * @see ./save.js
    */
   save: _columns_save2__WEBPACK_IMPORTED_MODULE_7__["default"]
+});
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('selleads/label', {
+  /**
+   * This is the display title for your block, which can be translated with `i18n` functions.
+   * The block inserter will show this name.
+   */
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads label', 'Selleads'),
+
+  /**
+   * This is a short description for your block, can be translated with `i18n` functions.
+   * It will be shown in the Block Tab in the Settings Sidebar.
+   */
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('', 'selleads'),
+
+  /**
+   * Blocks are grouped into categories to help users browse and discover them.
+   * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
+   */
+  category: 'design',
+
+  /**
+   * An icon property should be specified to make it easier to identify a block.
+   * These can be any of WordPress’ Dashicons, or a custom svg element.
+   */
+  icon: 'smiley',
+
+  /**
+   * Optional block extended support features.
+   */
+  supports: {
+    // Removes support for an HTML mode.
+    html: false
+  },
+  attributes: {},
+
+  /**
+   * @see ./edit.js
+   */
+  edit: _dotted_labels_edit__WEBPACK_IMPORTED_MODULE_8__["default"],
+
+  /**
+   * @see ./save.js
+   */
+  save3: _dotted_labels_save__WEBPACK_IMPORTED_MODULE_9__["default"]
 });
 
 /***/ }),
