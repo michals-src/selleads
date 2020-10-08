@@ -32,8 +32,8 @@ import save1 from './column/save';
 import edit from './columns/ColumnsEdit';
 import save from './columns/save2';
 
-import edit3 from './dotted-labels/edit';
-import save3 from './dotted-labels/save';
+import edit3 from './dotted-label/edit';
+import save3 from './dotted-label/save';
  
 // import Edit3 from './edit';
 // import save3 from './save';
@@ -244,7 +244,57 @@ registerBlockType( 'selleads/label', {
 	},
 
 	attributes: {
-		
+		"background": {
+			"color": {
+				"type": "string",
+				"default": "#ffffff"
+			},
+			"image": {
+				"type": "string",
+			}
+		},
+		border: {
+			radius: {
+				type: "number",
+				default: 5
+			},
+			width: {
+				type: "number",
+				default: 1
+			},
+			color: {
+				type: "string",
+				default: "#ffffff"
+			}
+		},
+		padding: {
+			inner: {
+				type: "number",
+				default: 25
+			},
+			outer: {
+				type: "number",
+				default: 15
+			}
+		},
+		dot: {
+			color: {
+				type: "string",
+				default: "#ffffff"
+			},
+			width: {
+				type: "string",
+				default: "#ffffff"
+			},
+		},
+		content: {
+			type: "string",
+			selector: "p"
+		},
+		heading: {
+			type: "string",
+			selector: "h1,h2,h3,h4,h5,h6"
+		}
 	},
 
 	/**
