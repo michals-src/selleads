@@ -1,18 +1,19 @@
+.selleads-label--object{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.selleads-label--wrapper{
+    padding: 25px;
+    flex: 0 0 50%;
+}
+
 .selleads-label--item{
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    padding: 10px;
-    border-radius: 5px;
-    border-color: #f4f4f4;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #fff;
-    color: #000;
-}
-
-.selleads-label--item{
     /* InspectorControls */
     padding: 10px;
     border-radius: 5px;
