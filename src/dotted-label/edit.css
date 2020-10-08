@@ -1,0 +1,67 @@
+.selleads-label--object{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.selleads-label--wrapper{
+    padding: 25px;
+    flex: 0 0 50%;
+}
+
+.selleads-label--item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    /* InspectorControls */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #fff;
+    /* background  - obrazek */
+    color: #000;
+    position: relative;
+    z-index: 9;
+}
+
+.selleads-label-dot{
+    border-radius: 50%;
+    position: relative;
+    white-space: nowrap;
+    z-index: 10;
+    margin-left: -30px;
+    margin-right: 35px;
+    padding: 10px;
+    background-color: rgba(0,100,255,0.5);
+}
+    .selleads-label-dot--pseudo-before{
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        z-index: 1;
+        background-color: #0066ff;
+        overflow: hidden;
+    }
+    .selleads-label-dot--pseudo-before span{
+        position: absolute;
+        left: -9999px;
+    }
+
+.selleads-label-container{
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+    .selleads-label-container .selleads-label--header{
+        margin-top: 0 !important;
+        margin-bottom: 5px !important;
+    }
+    .selleads-label-container .selleads-label--content{
+        color: #555;
+        line-height: 1.2em;
+        letter-spacing: 1.2px;
+        margin-top: 5px !important;
+        margin-bottom: 8px !important;
+    }
