@@ -61,21 +61,22 @@
 .columns-item-container figure{
 	display: flex;
 }
+.selleads-label--object{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.selleads-label--wrapper{
+    padding: 25px;
+    flex: 0 0 50%;
+}
+
 .selleads-label--item{
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    padding: 10px;
-    border-radius: 5px;
-    border-color: #f4f4f4;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #fff;
-    color: #000;
-}
-
-.selleads-label--item{
+    
     /* InspectorControls */
     padding: 10px;
     border-radius: 5px;
@@ -88,40 +89,26 @@
 }
 
 .selleads-label-dot{
+    border-radius: 50%;
     position: relative;
     white-space: nowrap;
-    width: 15px;
-    height: 15px;
     z-index: 10;
-    margin-left: -12px;
+    margin-left: -30px;
     margin-right: 35px;
+    padding: 10px;
+    background-color: rgba(0,100,255,0.5);
 }
-    .selleads-label-dot span {
-        position: absolute;
-        left: -99999px;
-    }
-    .selleads-label-dot::before,
-    .selleads-label-dot::after{
-        content: " ";
-        position: absolute; 
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
+    .selleads-label-dot--pseudo-before{
         border-radius: 50%;
-        
-    }
-    .selleads-label-dot::before{
-        width: inherit;
-        height: inherit;
+        width: 15px;
+        height: 15px;
         z-index: 1;
         background-color: #0066ff;
+        overflow: hidden;
     }
-    .selleads-label-dot::after{
-        width: inherit;
-        height: inherit;
-        border: 15px solid #002bff38;
-        z-index: -1;
-        background-color: transparent;
+    .selleads-label-dot--pseudo-before span{
+        position: absolute;
+        left: -9999px;
     }
 
 .selleads-label-container{
