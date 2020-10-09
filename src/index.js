@@ -21,6 +21,53 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 import './style.scss';
 
+
+import * as section from './section';
+import * as column from './column';
+import * as label from './dotted-label';
+
+/**
+ * Function to register an individual block.
+ *
+ * @param {Object} block The block to be registered.
+ *
+ */
+const registerBlock = ( block ) => {
+	if ( ! block ) {
+		return;
+	}
+	
+	const { settings, name } = block;
+	// if ( metadata ) {
+	// 	unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
+	// }
+	registerBlockType( name, settings );
+};
+
+const registerSelleadsBlocks = (blocks) => {
+
+	if(!blocks) return;
+
+
+		// Common blocks are grouped at the top to prioritize their display
+		// in various contexts — like the inserter and auto-complete components.
+		blocks.forEach( registerBlock );
+
+	// setDefaultBlockName( paragraph.name );
+	// if ( window.wp && window.wp.oldEditor ) {
+	// 	setFreeformContentHandlerName( classic.name );
+	// }
+	// setUnregisteredTypeHandlerName( missing.name );
+	// setGroupingBlockName( group.name );
+};
+
+registerSelleadsBlocks([
+	section,
+	column,
+	label
+]);
+
+
 /**
  * Internal dependencies
  */
@@ -319,47 +366,3 @@ import './style.scss';
 // 	unstable__bootstrapServerSideBlockDefinitions, // eslint-disable-line camelcase
 // } from '@wordpress/blocks';
 
-import * as section from './section';
-import * as column from './column';
-import * as label from './dotted-label';
-
-/**
- * Function to register an individual block.
- *
- * @param {Object} block The block to be registered.
- *
- */
-const registerBlock = ( block ) => {
-	if ( ! block ) {
-		return;
-	}
-	
-	const { settings, name } = block;
-	// if ( metadata ) {
-	// 	unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
-	// }
-	registerBlockType( name, settings );
-};
-
-const registerSelleadsBlocks = (blocks) => {
-
-	if(!blocks) return;
-
-
-		// Common blocks are grouped at the top to prioritize their display
-		// in various contexts — like the inserter and auto-complete components.
-		blocks.forEach( registerBlock );
-
-	// setDefaultBlockName( paragraph.name );
-	// if ( window.wp && window.wp.oldEditor ) {
-	// 	setFreeformContentHandlerName( classic.name );
-	// }
-	// setUnregisteredTypeHandlerName( missing.name );
-	// setGroupingBlockName( group.name );
-};
-
-registerSelleadsBlocks([
-	section,
-	column,
-	label
-]);
