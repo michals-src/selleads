@@ -3,8 +3,6 @@ import { __ } from '@wordpress/i18n';
 
 import edit from './edit';
 import save from './save';
-import metadata from './block.json';
-
 
 export const name = "selleads/section";
 
@@ -17,33 +15,29 @@ export const settings = {
     ],
     "category": "design",
 	"attributes": {
-		"columns": {
-			"type": "number",
-			"default": "2"
+		"align": {
+			"type": "string",
+			"default": 'full'
 		},
-		"colorParent": {
-			"type": "string"
+		"image": {
+			"type": "string",
 		},
-		"colorColumns": {
-			"type": "string"
-		}, 
-		"radiusParent": {
-			"type": "number"
-		}, 
-		"radiusColumns": {
-			"type": "number"
-		}, 
-		"paddingParent": {
+		"color": {
+			"type": "string",
+			"default": "#fff"
+		},
+		"radius": {
 			"type": "number",
-			"default": 0
-		}, 
-		"paddingColumns": {
+			"default": 5
+		},
+		"padding": {
 			"type": "number",
-			"default": 0
+			"default": 25
 		}
 	},
 	"supports": {
-        "anchor": true,
+		"anchor": true,
+		"align": ["full","wide"],
 		"html": false
 	},
 	// icon,
