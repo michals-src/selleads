@@ -170,59 +170,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-module.exports = _arrayLikeToArray;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-module.exports = _arrayWithHoles;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return arrayLikeToArray(arr);
-}
-
-module.exports = _arrayWithoutHoles;
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
@@ -275,89 +222,6 @@ function _extends() {
 }
 
 module.exports = _extends;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-module.exports = _iterableToArray;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-module.exports = _iterableToArrayLimit;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/nonIterableRest.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableRest;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableSpread;
 
 /***/ }),
 
@@ -416,136 +280,6 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 }
 
 module.exports = _objectWithoutPropertiesLoose;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/slicedToArray.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js");
-
-var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js");
-
-var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray */ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js");
-
-var nonIterableRest = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime/helpers/nonIterableRest.js");
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/toConsumableArray.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js");
-
-var iterableToArray = __webpack_require__(/*! ./iterableToArray */ "./node_modules/@babel/runtime/helpers/iterableToArray.js");
-
-var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray */ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js");
-
-var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js");
-
-function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
-}
-
-module.exports = _toConsumableArray;
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-module.exports = _unsupportedIterableToArray;
-
-/***/ }),
-
-/***/ "./node_modules/classnames/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/classnames/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ( true && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-}());
-
 
 /***/ }),
 
@@ -1401,6 +1135,42 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
+
+
+/**
+ * Function to register an individual block.
+ *
+ * @param {Object} block The block to be registered.
+ *
+ */
+
+var registerBlock = function registerBlock(block) {
+  if (!block) {
+    return;
+  }
+
+  var settings = block.settings,
+      name = block.name; // if ( metadata ) {
+  // 	unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
+  // }
+
+  Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])(name, settings);
+};
+
+var registerSelleadsBlocks = function registerSelleadsBlocks(blocks) {
+  if (!blocks) return; // Common blocks are grouped at the top to prioritize their display
+  // in various contexts — like the inserter and auto-complete components.
+
+  blocks.forEach(registerBlock); // setDefaultBlockName( paragraph.name );
+  // if ( window.wp && window.wp.oldEditor ) {
+  // 	setFreeformContentHandlerName( classic.name );
+  // }
+  // setUnregisteredTypeHandlerName( missing.name );
+  // setGroupingBlockName( group.name );
+};
+
+registerSelleadsBlocks([_section__WEBPACK_IMPORTED_MODULE_3__, _column__WEBPACK_IMPORTED_MODULE_4__, _dotted_label__WEBPACK_IMPORTED_MODULE_5__]);
 /**
  * Internal dependencies
  */
@@ -1671,580 +1441,61 @@ __webpack_require__.r(__webpack_exports__);
 // 	unstable__bootstrapServerSideBlockDefinitions, // eslint-disable-line camelcase
 // } from '@wordpress/blocks';
 
-
-
-
-/**
- * Function to register an individual block.
- *
- * @param {Object} block The block to be registered.
- *
- */
-
-var registerBlock = function registerBlock(block) {
-  if (!block) {
-    return;
-  }
-
-  var settings = block.settings,
-      name = block.name; // if ( metadata ) {
-  // 	unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
-  // }
-
-  Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])(name, settings);
-};
-
-var registerSelleadsBlocks = function registerSelleadsBlocks(blocks) {
-  if (!blocks) return; // Common blocks are grouped at the top to prioritize their display
-  // in various contexts — like the inserter and auto-complete components.
-
-  blocks.forEach(registerBlock); // setDefaultBlockName( paragraph.name );
-  // if ( window.wp && window.wp.oldEditor ) {
-  // 	setFreeformContentHandlerName( classic.name );
-  // }
-  // setUnregisteredTypeHandlerName( missing.name );
-  // setGroupingBlockName( group.name );
-};
-
-registerSelleadsBlocks([_section__WEBPACK_IMPORTED_MODULE_3__, _column__WEBPACK_IMPORTED_MODULE_4__, _dotted_label__WEBPACK_IMPORTED_MODULE_5__]);
-
-/***/ }),
-
-/***/ "./src/section/block.json":
-/*!********************************!*\
-  !*** ./src/section/block.json ***!
-  \********************************/
-/*! exports provided: name, category, attributes, supports, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"name\":\"selleads/section\",\"category\":\"design\",\"attributes\":{\"columns\":{\"type\":\"number\",\"default\":\"2\"},\"colorParent\":{\"type\":\"string\"},\"colorColumns\":{\"type\":\"string\"},\"radiusParent\":{\"type\":\"number\"},\"radiusColumns\":{\"type\":\"number\"},\"paddingParent\":{\"type\":\"number\",\"default\":0},\"paddingColumns\":{\"type\":\"number\",\"default\":0}},\"supports\":{\"anchor\":true,\"html\":false}}");
-
 /***/ }),
 
 /***/ "./src/section/edit.js":
 /*!*****************************!*\
   !*** ./src/section/edit.js ***!
   \*****************************/
-/*! exports provided: toWidthPrecision, getEffectiveColumnWidth, getTotalColumnsWidth, getColumnWidths, getRedistributedColumnWidths, hasExplicitColumnWidths, getMappedColumnWidths, default */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toWidthPrecision", function() { return toWidthPrecision; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEffectiveColumnWidth", function() { return getEffectiveColumnWidth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTotalColumnsWidth", function() { return getTotalColumnsWidth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getColumnWidths", function() { return getColumnWidths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRedistributedColumnWidths", function() { return getRedistributedColumnWidths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasExplicitColumnWidths", function() { return hasExplicitColumnWidths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMappedColumnWidths", function() { return getMappedColumnWidths; });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./editor.css */ "./src/section/editor.css");
-/* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_editor_css__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.css */ "./src/section/editor.css");
+/* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editor_css__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
 
-/**
- * External dependencies
- */
-
-
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-
-
-
-
-/**
- * Internal dependencies
- */
-
-/**
- * External dependencies
- */
-
-
-
-/**
- * Returns a column width attribute value rounded to standard precision.
- * Returns `undefined` if the value is not a valid finite number.
- *
- * @param {?number} value Raw value.
- *
- * @return {number} Value rounded to standard precision.
- */
-
-var toWidthPrecision = function toWidthPrecision(value) {
-  return Number.isFinite(value) ? parseFloat(value.toFixed(2)) : undefined;
-};
-/**
- * Returns an effective width for a given block. An effective width is equal to
- * its attribute value if set, or a computed value assuming equal distribution.
- *
- * @param {WPBlock} block           Block object.
- * @param {number}  totalBlockCount Total number of blocks in Columns.
- *
- * @return {number} Effective column width.
- */
-
-function getEffectiveColumnWidth(block, totalBlockCount) {
-  var _block$attributes$wid = block.attributes.width,
-      width = _block$attributes$wid === void 0 ? 100 / totalBlockCount : _block$attributes$wid;
-  return toWidthPrecision(width);
-}
-/**
- * Returns the total width occupied by the given set of column blocks.
- *
- * @param {WPBlock[]} blocks          Block objects.
- * @param {?number}   totalBlockCount Total number of blocks in Columns.
- *                                    Defaults to number of blocks passed.
- *
- * @return {number} Total width occupied by blocks.
- */
-
-function getTotalColumnsWidth(blocks) {
-  var totalBlockCount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : blocks.length;
-  return Object(lodash__WEBPACK_IMPORTED_MODULE_5__["sumBy"])(blocks, function (block) {
-    return getEffectiveColumnWidth(block, totalBlockCount);
-  });
-}
-/**
- * Returns an object of `clientId` → `width` of effective column widths.
- *
- * @param {WPBlock[]} blocks          Block objects.
- * @param {?number}   totalBlockCount Total number of blocks in Columns.
- *                                    Defaults to number of blocks passed.
- *
- * @return {Object<string,number>} Column widths.
- */
-
-function getColumnWidths(blocks) {
-  var totalBlockCount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : blocks.length;
-  return blocks.reduce(function (accumulator, block) {
-    var width = getEffectiveColumnWidth(block, totalBlockCount);
-    return Object.assign(accumulator, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()({}, block.clientId, width));
-  }, {});
-}
-/**
- * Returns an object of `clientId` → `width` of column widths as redistributed
- * proportional to their current widths, constrained or expanded to fit within
- * the given available width.
- *
- * @param {WPBlock[]} blocks          Block objects.
- * @param {number}    availableWidth  Maximum width to fit within.
- * @param {?number}   totalBlockCount Total number of blocks in Columns.
- *                                    Defaults to number of blocks passed.
- *
- * @return {Object<string,number>} Redistributed column widths.
- */
-
-function getRedistributedColumnWidths(blocks, availableWidth) {
-  var totalBlockCount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : blocks.length;
-  var totalWidth = getTotalColumnsWidth(blocks, totalBlockCount);
-  var difference = availableWidth - totalWidth;
-  var adjustment = difference / blocks.length;
-  return Object(lodash__WEBPACK_IMPORTED_MODULE_5__["mapValues"])(getColumnWidths(blocks, totalBlockCount), function (width) {
-    return toWidthPrecision(width + adjustment);
-  });
-}
-/**
- * Returns true if column blocks within the provided set are assigned with
- * explicit widths, or false otherwise.
- *
- * @param {WPBlock[]} blocks Block objects.
- *
- * @return {boolean} Whether columns have explicit widths.
- */
-
-function hasExplicitColumnWidths(blocks) {
-  return blocks.every(function (block) {
-    return Number.isFinite(block.attributes.width);
-  });
-}
-/**
- * Returns a copy of the given set of blocks with new widths assigned from the
- * provided object of redistributed column widths.
- *
- * @param {WPBlock[]}             blocks Block objects.
- * @param {Object<string,number>} widths Redistributed column widths.
- *
- * @return {WPBlock[]} blocks Mapped block objects.
- */
-
-function getMappedColumnWidths(blocks, widths) {
-  return blocks.map(function (block) {
-    return Object(lodash__WEBPACK_IMPORTED_MODULE_5__["merge"])({}, block, {
-      attributes: {
-        width: widths[block.clientId]
-      }
-    });
-  });
-}
-/**
- * Allowed blocks constant is passed to InnerBlocks precisely as specified here.
- * The contents of the array should never change.
- * The array should contain the name of each block that is allowed.
- * In columns block, the only block we allow is 'core/column'.
- *
- * @constant
- * @type {string[]}
- */
-
-var ALLOWED_BLOCKS = ['core/column'];
-
-function ColumnsEditContainer(_ref) {
+var edit = function edit(_ref) {
   var attributes = _ref.attributes,
-      updateAlignment = _ref.updateAlignment,
-      updateColumns = _ref.updateColumns,
-      clientId = _ref.clientId;
-  var verticalAlignment = attributes.verticalAlignment;
-
-  var _useSelect = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useSelect"])(function (select) {
-    return {
-      count: select('core/block-editor').getBlockCount(clientId)
-    };
-  }, [clientId]),
-      count = _useSelect.count;
-
-  var classes = classnames__WEBPACK_IMPORTED_MODULE_4___default()(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()({}, "are-vertically-aligned-".concat(verticalAlignment), verticalAlignment));
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__["BlockControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__["BlockVerticalAlignmentToolbar"], {
-    onChange: updateAlignment,
-    value: verticalAlignment
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["PanelBody"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('Columns'),
-    value: count,
-    onChange: function onChange(value) {
-      return updateColumns(count, value);
-    },
-    min: 2,
-    max: Math.max(6, count)
-  }), count > 6 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Notice"], {
-    status: "warning",
-    isDismissible: false
-  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])('This column count exceeds the recommended amount and may cause visual breakage.')))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__["InnerBlocks"], {
-    templateLock: "all",
-    allowedBlocks: ALLOWED_BLOCKS,
-    orientation: "horizontal",
-    __experimentalPassedProps: {
-      className: 'columns-inner-block'
-    },
-    renderAppender: false
-  }));
-}
-
-var ColumnsEditContainerWrapper = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["withDispatch"])(function (dispatch, ownProps, registry) {
-  return {
-    /**
-     * Update all child Column blocks with a new vertical alignment setting
-     * based on whatever alignment is passed in. This allows change to parent
-     * to overide anything set on a individual column basis.
-     *
-     * @param {string} verticalAlignment the vertical alignment setting
-     */
-    updateAlignment: function updateAlignment(verticalAlignment) {
-      var clientId = ownProps.clientId,
-          setAttributes = ownProps.setAttributes;
-
-      var _dispatch = dispatch('core/block-editor'),
-          updateBlockAttributes = _dispatch.updateBlockAttributes;
-
-      var _registry$select = registry.select('core/block-editor'),
-          getBlockOrder = _registry$select.getBlockOrder; // Update own alignment.
-
-
-      setAttributes({
-        verticalAlignment: verticalAlignment
-      }); // Update all child Column Blocks to match
-
-      var innerBlockClientIds = getBlockOrder(clientId);
-      innerBlockClientIds.forEach(function (innerBlockClientId) {
-        updateBlockAttributes(innerBlockClientId, {
-          verticalAlignment: verticalAlignment
-        });
-      });
-    },
-
-    /**
-     * Updates the column count, including necessary revisions to child Column
-     * blocks to grant required or redistribute available space.
-     *
-     * @param {number} previousColumns Previous column count.
-     * @param {number} newColumns      New column count.
-     */
-    updateColumns: function updateColumns(previousColumns, newColumns) {
-      var clientId = ownProps.clientId;
-
-      var _dispatch2 = dispatch('core/block-editor'),
-          replaceInnerBlocks = _dispatch2.replaceInnerBlocks;
-
-      var _registry$select2 = registry.select('core/block-editor'),
-          getBlocks = _registry$select2.getBlocks;
-
-      var innerBlocks = getBlocks(clientId);
-      var hasExplicitWidths = hasExplicitColumnWidths(innerBlocks); // Redistribute available width for existing inner blocks.
-
-      var isAddingColumn = newColumns > previousColumns;
-
-      if (isAddingColumn && hasExplicitWidths) {
-        // If adding a new column, assign width to the new column equal to
-        // as if it were `1 / columns` of the total available space.
-        var newColumnWidth = toWidthPrecision(100 / newColumns); // Redistribute in consideration of pending block insertion as
-        // constraining the available working width.
-
-        var widths = getRedistributedColumnWidths(innerBlocks, 100 - newColumnWidth);
-        innerBlocks = [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(getMappedColumnWidths(innerBlocks, widths)), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(Object(lodash__WEBPACK_IMPORTED_MODULE_5__["times"])(newColumns - previousColumns, function () {
-          return Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_10__["createBlock"])('selleads/column', {
-            width: newColumnWidth
-          });
-        })));
-      } else if (isAddingColumn) {
-        innerBlocks = [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(innerBlocks), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(Object(lodash__WEBPACK_IMPORTED_MODULE_5__["times"])(newColumns - previousColumns, function () {
-          return Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_10__["createBlock"])('selleads/column');
-        })));
-      } else {
-        // The removed column will be the last of the inner blocks.
-        innerBlocks = Object(lodash__WEBPACK_IMPORTED_MODULE_5__["dropRight"])(innerBlocks, previousColumns - newColumns);
-
-        if (hasExplicitWidths) {
-          // Redistribute as if block is already removed.
-          var _widths = getRedistributedColumnWidths(innerBlocks, 100);
-
-          innerBlocks = getMappedColumnWidths(innerBlocks, _widths);
-        }
-      }
-
-      replaceInnerBlocks(clientId, innerBlocks, false);
-    }
+      setAttributes = _ref.setAttributes;
+  var align = attributes.align,
+      image = attributes.image,
+      color = attributes.color,
+      radius = attributes.radius,
+      padding = attributes.padding;
+  var styling = {
+    backgroundColor: color,
+    padding: "".concat(padding, "px"),
+    borderRadius: "".concat(radius, "px")
   };
-})(ColumnsEditContainer);
-
-var createBlocksFromInnerBlocksTemplate = function createBlocksFromInnerBlocksTemplate(innerBlocksTemplate) {
-  return Object(lodash__WEBPACK_IMPORTED_MODULE_5__["map"])(innerBlocksTemplate, function (_ref2) {
-    var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 3),
-        name = _ref3[0],
-        attributes = _ref3[1],
-        _ref3$ = _ref3[2],
-        innerBlocks = _ref3$ === void 0 ? [] : _ref3$;
-
-    return Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_10__["createBlock"])(name, attributes, createBlocksFromInnerBlocksTemplate(innerBlocks));
-  });
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: "Zarz\u0105dzanie t\u0142em"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+    color: color,
+    onChangeComplete: function onChangeComplete(e) {
+      return setAttributes({
+        color: e.hex
+      });
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "selleads-section is-".concat(align),
+    style: styling
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "selleads-section-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"], null))));
 };
 
-var PlaceholderWrapper2 = function PlaceholderWrapper2(_ref4) {
-  var clientId = _ref4.clientId;
-
-  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(2),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
-      columns = _useState2[0],
-      setColumns = _useState2[1];
-
-  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])([]),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
-      variation = _useState4[0],
-      setVariation = _useState4[1];
-
-  var _useDispatch = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useDispatch"])('core/block-editor'),
-      replaceInnerBlocks = _useDispatch.replaceInnerBlocks;
-
-  var handleCreate = function handleCreate(cols) {
-    var tree = Array(cols).fill(['selleads/column']);
-    setVariation(tree);
-    replaceInnerBlocks(clientId, createBlocksFromInnerBlocksTemplate(tree));
-  };
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["RangeControl"], {
-    label: "Liczba kolumn",
-    value: columns,
-    onChange: function onChange(columns) {
-      return setColumns(columns);
-    },
-    min: 2,
-    max: 10
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Button"], {
-    onClick: function onClick() {
-      return handleCreate(columns);
-    },
-    isSecondary: true
-  }, "Dodaj"));
-};
-
-function PlaceholderWrapper(_ref5) {
-  var clientId = _ref5.clientId,
-      name = _ref5.name,
-      setAttributes = _ref5.setAttributes;
-
-  var _useSelect2 = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useSelect"])(function (select) {
-    var _select = select('core/blocks'),
-        getBlockVariations = _select.getBlockVariations,
-        getBlockType = _select.getBlockType,
-        getDefaultBlockVariation = _select.getDefaultBlockVariation;
-
-    return {
-      blockType: getBlockType(name),
-      defaultVariation: getDefaultBlockVariation(name, 'block'),
-      variations: getBlockVariations(name, 'block')
-    };
-  }, [name]),
-      blockType = _useSelect2.blockType,
-      defaultVariation = _useSelect2.defaultVariation,
-      variations = _useSelect2.variations;
-
-  var _useDispatch2 = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useDispatch"])('core/block-editor'),
-      replaceInnerBlocks = _useDispatch2.replaceInnerBlocks;
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Placeholder"], {
-    label: "Dodawanie kolumn",
-    instructions: "Wybierz przyk\u0142adowy wariant"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(PlaceholderWrapper2, {
-    clientId: clientId
-  }))));
-}
-
-var SectionEdit = function SectionEdit(props) {
-  var _props$attributes = props.attributes,
-      colorParent = _props$attributes.colorParent,
-      colorColumns = _props$attributes.colorColumns,
-      radiusParent = _props$attributes.radiusParent,
-      radiusColumns = _props$attributes.radiusColumns,
-      paddingParent = _props$attributes.paddingParent,
-      paddingColumns = _props$attributes.paddingColumns;
-  var attributes = props.attributes,
-      setAttributes = props.setAttributes;
-  var clientId = props.clientId;
-  var hasInnerBlocks = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useSelect"])(function (select) {
-    return select('core/block-editor').getBlocks(clientId).length > 0;
-  }, [clientId]);
-  var InnerBlocks = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useSelect"])(function (select) {
-    return select('core/block-editor').getBlocks(clientId);
-  }, [clientId]); // {console.log(InnerBlocks)}
-
-  var _useDispatch3 = Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_9__["useDispatch"])('core/block-editor'),
-      updateBlock = _useDispatch3.updateBlock; // updateBlock(InnerBlocks[0].clientId, {
-  // 	className: ['absfgvsvfsdvsdvs']
-  // });
-
-
-  var Component = hasInnerBlocks ? ColumnsEditContainerWrapper : PlaceholderWrapper;
-  var colors = [{
-    name: 'red',
-    color: '#f00'
-  }, {
-    name: 'white',
-    color: '#fff'
-  }, {
-    name: 'blue',
-    color: '#00f'
-  }];
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["PanelBody"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["ColorPalette"], {
-    label: "Kolor t\u0142a zbiornika",
-    colors: colors,
-    value: colorParent,
-    onChange: function onChange(color) {
-      return setAttributes({
-        colorParent: color
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["ColorPalette"], {
-    label: "Kolor t\u0142a kolumn",
-    colors: colors,
-    value: colorColumns,
-    onChange: function onChange(color) {
-      return setAttributes({
-        colorColumns: color
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["RangeControl"], {
-    label: "Zaokr\u0105glenie zbiornika",
-    value: radiusParent,
-    onChange: function onChange(value) {
-      return setAttributes({
-        radiusParent: value
-      });
-    },
-    min: 0,
-    max: 50
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["RangeControl"], {
-    label: "Zaokr\u0105glenie t\u0142a kolumn",
-    value: radiusColumns,
-    onChange: function onChange(value) {
-      return setAttributes({
-        radiusColumns: value
-      });
-    },
-    min: 0,
-    max: 50
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["RangeControl"], {
-    label: "Wg\u0142\u0119bienie zbiornika",
-    value: paddingParent,
-    onChange: function onChange(value) {
-      setAttributes({
-        paddingParent: value
-      });
-    },
-    min: 0,
-    max: 60
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["RangeControl"], {
-    label: "Wg\u0142\u0119bienie t\u0142a kolumn",
-    value: paddingColumns,
-    onChange: function onChange(value) {
-      setAttributes({
-        paddingColumns: value
-      });
-    },
-    min: 0,
-    max: 60
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "columns-parent",
-    style: {
-      padding: "".concat(paddingParent, "px"),
-      backgroundColor: colorParent,
-      borderRadius: "".concat(radiusParent, "px")
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "columns-container",
-    style: {
-      padding: "".concat(paddingColumns, "px"),
-      backgroundColor: colorColumns,
-      borderRadius: "".concat(radiusColumns, "px")
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(Component, props))));
-}; // export default ColumnsEdit;
-
-
-/* harmony default export */ __webpack_exports__["default"] = (SectionEdit);
+/* harmony default export */ __webpack_exports__["default"] = (edit);
 
 /***/ }),
 
@@ -2274,10 +1525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/section/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/section/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/section/block.json");
-var _block_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./block.json */ "./src/section/block.json", 1);
  // import { audio as icon } from '@wordpress/icons';
-
 
 
 
@@ -2288,33 +1536,29 @@ var settings = {
   keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('selleads'), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('section')],
   "category": "design",
   "attributes": {
-    "columns": {
-      "type": "number",
-      "default": "2"
+    "align": {
+      "type": "string",
+      "default": 'full'
     },
-    "colorParent": {
+    "image": {
       "type": "string"
     },
-    "colorColumns": {
-      "type": "string"
+    "color": {
+      "type": "string",
+      "default": "#fff"
     },
-    "radiusParent": {
-      "type": "number"
-    },
-    "radiusColumns": {
-      "type": "number"
-    },
-    "paddingParent": {
+    "radius": {
       "type": "number",
-      "default": 0
+      "default": 5
     },
-    "paddingColumns": {
+    "padding": {
       "type": "number",
-      "default": 0
+      "default": 25
     }
   },
   "supports": {
     "anchor": true,
+    "align": ["full", "wide"],
     "html": false
   },
   // icon,
@@ -2452,17 +1696,6 @@ function save2() {
 /***/ (function(module, exports) {
 
 (function() { module.exports = this["wp"]["i18n"]; }());
-
-/***/ }),
-
-/***/ "lodash":
-/*!**********************************!*\
-  !*** external {"this":"lodash"} ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = this["lodash"]; }());
 
 /***/ })
 
