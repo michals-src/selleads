@@ -82,7 +82,7 @@ const MyBorderRadiusRange = ( { onChange, value } ) => {
 }
 
 
-function Column({
+function edit({
     attributes,
     setAttributes,
     ...props
@@ -259,7 +259,7 @@ const withClientIdClassName = createHigherOrderComponent( ( BlockListBlock ) => 
 			return <BlockListBlock { ...props } />
 		}
 
-        console.log(props.attributes.width);
+        // console.log(props.attributes.width);
         const wrapperProps = {};
         wrapperProps.style = {
             flex: `0 0 ${props.attributes.width}%`
@@ -271,4 +271,4 @@ const withClientIdClassName = createHigherOrderComponent( ( BlockListBlock ) => 
  
 addFilter( 'editor.BlockListBlock', 'my-plugin/with-client-id-class-name', withClientIdClassName );
 
-export default withFilters( 'editor.BlockListBlock' )( Column )
+export default withFilters( 'editor.BlockListBlock' )( edit )

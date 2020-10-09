@@ -14,8 +14,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @return {WPElement} Element to render.
  */
-export default function save1(props) {
-	console.log(props);
+export default function save(props) {
 	return (
 		<p>{ __( 'Selleads – hello from the saved content!', 'selleads' ) }</p>
 	);
