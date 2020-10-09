@@ -19,6 +19,10 @@ export const settings = {
 			"type": "string",
 			"default": 'full'
 		},
+		"alignItems":{
+			"type": "string",
+			"default": "center"
+		},
 		"image": {
 			"type": "string",
 		},
@@ -26,13 +30,21 @@ export const settings = {
 			"type": "string",
 			"default": "#fff"
 		},
-		"radius": {
-			"type": "number",
-			"default": 5
-		},
 		"padding": {
 			"type": "number",
 			"default": 25
+		},
+		"borderRadius": {
+			"type": "number",
+			"default": 5
+		},
+		"borderWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"borderColor": {
+			"type": "string",
+			"default": null
 		}
 	},
 	"supports": {
