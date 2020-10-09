@@ -647,7 +647,7 @@ var MyBorderRadiusRange = function MyBorderRadiusRange(_ref2) {
   });
 };
 
-function Column(_ref3) {
+function edit(_ref3) {
   var attributes = _ref3.attributes,
       setAttributes = _ref3.setAttributes,
       props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2___default()(_ref3, ["attributes", "setAttributes"]);
@@ -828,9 +828,9 @@ var withClientIdClassName = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_6
   return function (props) {
     if (props.name !== 'selleads/column') {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(BlockListBlock, props);
-    }
+    } // console.log(props.attributes.width);
 
-    console.log(props.attributes.width);
+
     var wrapperProps = {};
     wrapperProps.style = {
       flex: "0 0 ".concat(props.attributes.width, "%")
@@ -842,7 +842,75 @@ var withClientIdClassName = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_6
   };
 }, 'withClientIdClassName');
 Object(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_10__["addFilter"])('editor.BlockListBlock', 'my-plugin/with-client-id-class-name', withClientIdClassName);
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["withFilters"])('editor.BlockListBlock')(Column));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["withFilters"])('editor.BlockListBlock')(edit));
+
+/***/ }),
+
+/***/ "./src/column/index.js":
+/*!*****************************!*\
+  !*** ./src/column/index.js ***!
+  \*****************************/
+/*! exports provided: name, settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "name", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/column/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/column/save.js");
+ // import { audio as icon } from '@wordpress/icons';
+
+
+
+var name = "selleads/column";
+var settings = {
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Selleads - Kolumna'),
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Kolumna'),
+  keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('selleads'), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('column')],
+  "category": "design",
+  attributes: {
+    content: {
+      type: 'string',
+      selector: 'p'
+    },
+    picture: {
+      id: {
+        type: 'number'
+      },
+      url: {
+        type: 'string'
+      }
+    },
+    bgColor: {
+      type: 'string'
+    },
+    borderRadius: {
+      type: 'number'
+    },
+    alignSelf: {
+      type: 'string',
+      default: "center"
+    },
+    padding: {
+      type: "number",
+      default: "30"
+    },
+    width: {
+      type: "number"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  // icon,
+  // transforms,
+  // deprecated,
+  edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
+};
 
 /***/ }),
 
@@ -855,7 +923,7 @@ Object(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_10__["addFilter"])('editor.Bloc
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
@@ -878,17 +946,785 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function save1(props) {
-  console.log(props);
+function save(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads – hello from the saved content!', 'selleads'));
 }
 
 /***/ }),
 
-/***/ "./src/columns/ColumnsEdit.js":
-/*!************************************!*\
-  !*** ./src/columns/ColumnsEdit.js ***!
-  \************************************/
+/***/ "./src/dotted-label/edit.css":
+/*!***********************************!*\
+  !*** ./src/dotted-label/edit.css ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/dotted-label/edit.js":
+/*!**********************************!*\
+  !*** ./src/dotted-label/edit.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _edit_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit.css */ "./src/dotted-label/edit.css");
+/* harmony import */ var _edit_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_edit_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+var INNER_BLOCKS_TEMPLATE = [['core/heading', {
+  level: 5,
+  placeholder: 'Nagłówek',
+  className: 'selleads-label--header'
+}]];
+
+var hex_to_rgb = function hex_to_rgb(hex) {
+  var normal = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+  if (normal) return normal.slice(1).map(function (e) {
+    return parseInt(e, 16);
+  });
+  var shorthand = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
+  if (shorthand) return shorthand.slice(1).map(function (e) {
+    return 0x11 * parseInt(e, 16);
+  });
+  return null;
+};
+
+function edit(_ref) {
+  var _padding$outer, _padding$inner, _border$radius, _border$width, _border$color, _dot$width, _dot$width2, _dot$width3, _dot$color, _background$color, _border$radius2, _border$width2, _border$color2, _padding$outer2, _padding$inner2, _dot$color2, _dot$width4;
+
+  var attributes = _ref.attributes,
+      setAttributes = _ref.setAttributes,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["attributes", "setAttributes"]);
+
+  var background = attributes.background,
+      border = attributes.border,
+      padding = attributes.padding,
+      dot = attributes.dot,
+      content = attributes.content;
+  var wrapperStyle = {
+    "padding": "".concat(padding === null || padding === void 0 ? void 0 : (_padding$outer = padding.outer) === null || _padding$outer === void 0 ? void 0 : _padding$outer.value, "px")
+  };
+  var itemStyle = {
+    "padding": "".concat(padding === null || padding === void 0 ? void 0 : (_padding$inner = padding.inner) === null || _padding$inner === void 0 ? void 0 : _padding$inner.value, "px"),
+    "borderRadius": "".concat(border === null || border === void 0 ? void 0 : (_border$radius = border.radius) === null || _border$radius === void 0 ? void 0 : _border$radius.value, "px"),
+    "borderWidth": "".concat(border === null || border === void 0 ? void 0 : (_border$width = border.width) === null || _border$width === void 0 ? void 0 : _border$width.value, "px"),
+    "borderColor": border === null || border === void 0 ? void 0 : (_border$color = border.color) === null || _border$color === void 0 ? void 0 : _border$color.value
+  };
+
+  if (background === null || background === void 0 ? void 0 : background.image) {
+    itemStyle.background = "".concat(background === null || background === void 0 ? void 0 : background.color.value, " url(").concat(background.image.value, ") center/center no-repeat");
+  } else {
+    itemStyle.backgroundColor = background === null || background === void 0 ? void 0 : background.color.value;
+  }
+
+  var dotStyle = {
+    padding: "".concat(dot === null || dot === void 0 ? void 0 : (_dot$width = dot.width) === null || _dot$width === void 0 ? void 0 : _dot$width.value, "px")
+  };
+  var colors = [{
+    name: 'red',
+    color: '#f00'
+  }, {
+    name: 'white',
+    color: '#fff'
+  }, {
+    name: 'blue',
+    color: '#00f'
+  }];
+  var dotBeforeStyle = {
+    width: "".concat(dot === null || dot === void 0 ? void 0 : (_dot$width2 = dot.width) === null || _dot$width2 === void 0 ? void 0 : _dot$width2.value, "px"),
+    height: "".concat(dot === null || dot === void 0 ? void 0 : (_dot$width3 = dot.width) === null || _dot$width3 === void 0 ? void 0 : _dot$width3.value, "px"),
+    backgroundColor: dot === null || dot === void 0 ? void 0 : (_dot$color = dot.color) === null || _dot$color === void 0 ? void 0 : _dot$color.value
+  };
+
+  if (dot === null || dot === void 0 ? void 0 : dot.color) {
+    var hex2rgb = hex_to_rgb(dot === null || dot === void 0 ? void 0 : dot.color.value);
+    dotStyle.backgroundColor = "rgba(".concat(hex2rgb[0], ",").concat(hex2rgb[1], ",").concat(hex2rgb[2], ",0.5)");
+  }
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
+    title: "Zarz\u0105danie t\u0142em",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+    className: "components-custom-select-control__label"
+  }, "Kolor t\u0142a")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ColorPicker"], {
+    color: background === null || background === void 0 ? void 0 : (_background$color = background.color) === null || _background$color === void 0 ? void 0 : _background$color.value,
+    onChangeComplete: function onChangeComplete(e) {
+      return setAttributes({
+        background: _objectSpread(_objectSpread({}, background), {}, {
+          color: {
+            value: e.hex
+          }
+        })
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
+    title: "Obramowanie",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
+    label: "Zaokr\u0105glenie",
+    value: border === null || border === void 0 ? void 0 : (_border$radius2 = border.radius) === null || _border$radius2 === void 0 ? void 0 : _border$radius2.value,
+    onChange: function onChange(e) {
+      return setAttributes({
+        border: _objectSpread(_objectSpread({}, border), {}, {
+          radius: {
+            value: e
+          }
+        })
+      });
+    },
+    min: 0,
+    max: 50
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
+    label: "Grubo\u015B\u0107 ramki",
+    value: border === null || border === void 0 ? void 0 : (_border$width2 = border.width) === null || _border$width2 === void 0 ? void 0 : _border$width2.value,
+    onChange: function onChange(e) {
+      return setAttributes({
+        border: _objectSpread(_objectSpread({}, border), {}, {
+          width: {
+            value: e
+          }
+        })
+      });
+    },
+    min: 0,
+    max: 50
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+    className: "components-custom-select-control__label"
+  }, "Kolor obramowania")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ColorPicker"], {
+    color: border === null || border === void 0 ? void 0 : (_border$color2 = border.color) === null || _border$color2 === void 0 ? void 0 : _border$color2.value,
+    onChangeComplete: function onChangeComplete(e) {
+      return setAttributes({
+        border: _objectSpread(_objectSpread({}, border), {}, {
+          color: {
+            value: e.hex
+          }
+        })
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
+    title: "Wg\u0142\u0119bienie",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
+    label: "Zewn\u0119trzne",
+    value: padding === null || padding === void 0 ? void 0 : (_padding$outer2 = padding.outer) === null || _padding$outer2 === void 0 ? void 0 : _padding$outer2.value,
+    onChange: function onChange(e) {
+      return setAttributes({
+        padding: _objectSpread(_objectSpread({}, padding), {}, {
+          outer: {
+            value: e
+          }
+        })
+      });
+    },
+    min: 0,
+    max: 50
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
+    label: "Wewn\u0119trzne",
+    value: padding === null || padding === void 0 ? void 0 : (_padding$inner2 = padding.inner) === null || _padding$inner2 === void 0 ? void 0 : _padding$inner2.value,
+    onChange: function onChange(e) {
+      return setAttributes({
+        padding: _objectSpread(_objectSpread({}, padding), {}, {
+          inner: {
+            value: e
+          }
+        })
+      });
+    },
+    min: 0,
+    max: 50
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
+    title: "Ustawienia kropki",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+    className: "components-custom-select-control__label"
+  }, "Kolor")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ColorPicker"], {
+    color: dot === null || dot === void 0 ? void 0 : (_dot$color2 = dot.color) === null || _dot$color2 === void 0 ? void 0 : _dot$color2.value,
+    onChangeComplete: function onChangeComplete(e) {
+      return setAttributes({
+        dot: _objectSpread(_objectSpread({}, dot), {}, {
+          color: {
+            value: e.hex
+          }
+        })
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
+    label: "Rozmiar",
+    value: dot === null || dot === void 0 ? void 0 : (_dot$width4 = dot.width) === null || _dot$width4 === void 0 ? void 0 : _dot$width4.value,
+    onChange: function onChange(e) {
+      return setAttributes({
+        dot: _objectSpread(_objectSpread({}, dot), {}, {
+          width: {
+            value: e
+          }
+        })
+      });
+    },
+    min: 10,
+    max: 50
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "selleads-label--wrapper",
+    style: wrapperStyle
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "selleads-label--item",
+    style: itemStyle
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "selleads-label-dot",
+    style: dotStyle
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "selleads-label-dot--pseudo-before",
+    style: dotBeforeStyle
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, "Dot before"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "selleads-label-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InnerBlocks"], {
+    templateLock: "all",
+    __experimentalPassedProps: {// className: 'selleads-label--header',
+    },
+    template: INNER_BLOCKS_TEMPLATE
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
+    identifier: "content",
+    tagName: "p",
+    value: content,
+    onChange: function onChange(value) {
+      return setAttributes({
+        content: value
+      });
+    },
+    onSplit: function onSplit(value) {
+      if (!value) {
+        return createBlock('core/paragraph');
+      }
+
+      return createBlock('core/heading', _objectSpread(_objectSpread({}, attributes), {}, {
+        content: value
+      }));
+    },
+    placeholder: 'Simple text filling the column ...',
+    className: "selleads-label--header" // { ...blockWrapperProps }
+
+  })))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (edit);
+
+/***/ }),
+
+/***/ "./src/dotted-label/index.js":
+/*!***********************************!*\
+  !*** ./src/dotted-label/index.js ***!
+  \***********************************/
+/*! exports provided: name, settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "name", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/dotted-label/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/dotted-label/save.js");
+ // import { audio as icon } from '@wordpress/icons';
+
+
+
+var name = "selleads/label";
+var settings = {
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Selleads - Etykieta'),
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Etykieta z kolorową kropką'),
+  keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('selleads'), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('label')],
+  "category": "design",
+  attributes: {
+    "background": {
+      "color": {
+        "type": "string",
+        "default": "#ffffff"
+      },
+      "image": {
+        "type": "string"
+      }
+    },
+    border: {
+      radius: {
+        type: "number",
+        default: 5
+      },
+      width: {
+        type: "number",
+        default: 1
+      },
+      color: {
+        type: "string",
+        default: "#ffffff"
+      }
+    },
+    padding: {
+      inner: {
+        type: "number",
+        default: 25
+      },
+      outer: {
+        type: "number",
+        default: 15
+      }
+    },
+    dot: {
+      color: {
+        type: "string",
+        default: "#ffffff"
+      },
+      width: {
+        type: "string",
+        default: "#ffffff"
+      }
+    },
+    content: {
+      type: "string",
+      selector: "p"
+    },
+    heading: {
+      type: "string",
+      selector: "h1,h2,h3,h4,h5,h6"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  // icon,
+  // transforms,
+  // deprecated,
+  edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
+};
+
+/***/ }),
+
+/***/ "./src/dotted-label/save.js":
+/*!**********************************!*\
+  !*** ./src/dotted-label/save.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function save() {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads – hello from the saved content!', 'selleads'));
+}
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _section__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./section */ "./src/section/index.js");
+/* harmony import */ var _column__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./column */ "./src/column/index.js");
+/* harmony import */ var _dotted_label__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dotted-label */ "./src/dotted-label/index.js");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
+ */
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+// import Edit1 from './column/edit';
+// import save1 from './column/save';
+// import edit from './columns/ColumnsEdit';
+// import save from './columns/save2';
+// import edit3 from './dotted-label/edit';
+// import save3 from './dotted-label/save';
+// import Edit3 from './edit';
+// import save3 from './save';
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
+ */
+// registerBlockType( 'selleads/column', {
+// 	/**
+// 	 * This is the display title for your block, which can be translated with `i18n` functions.
+// 	 * The block inserter will show this name.
+// 	 */
+// 	title: __( 'Selleads', 'Selleads column' ),
+// 	/**
+// 	 * This is a short description for your block, can be translated with `i18n` functions.
+// 	 * It will be shown in the Block Tab in the Settings Sidebar.
+// 	 */
+// 	description: __(
+// 		'Example block written with ESNext standard and JSX support – build step required.',
+// 		'selleads'
+// 	),
+// 	/**
+// 	 * Blocks are grouped into categories to help users browse and discover them.
+// 	 * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
+// 	 */
+// 	category: 'design',
+// 	/**
+// 	 * An icon property should be specified to make it easier to identify a block.
+// 	 * These can be any of WordPress’ Dashicons, or a custom svg element.
+// 	 */
+// 	icon: 'smiley',
+// 	/**
+// 	 * Optional block extended support features.
+// 	 */
+// 	supports: {
+// 		// Removes support for an HTML mode.
+// 		html: false,
+// 	},
+// 	attributes: {
+// 		content: {
+// 			type: 'string',
+// 			selector: 'p',
+// 		},
+// 		picture: {
+// 			id: {
+// 				type: 'number'
+// 			},
+// 			url: {
+// 				type: 'string'
+// 			}
+// 		},
+// 		bgColor: {
+// 			type: 'string',
+// 		},
+// 		borderRadius:{
+// 			type: 'number'
+// 		},
+// 		alignSelf: {
+// 			type: 'string',
+// 			default: "center"
+// 		},
+// 		padding: {
+// 			type: "number",
+// 			default: "30"
+// 		},
+// 		width: {
+// 			type: "number"
+// 		}
+// 	},
+// 	/**
+// 	 * @see ./edit.js
+// 	 */
+// 	edit: Edit1,
+// 	/**
+// 	 * @see ./save.js
+// 	 */
+// 	save1,
+// } );
+// registerBlockType( 'selleads/columns', {
+// 	/**
+// 	 * This is the display title for your block, which can be translated with `i18n` functions.
+// 	 * The block inserter will show this name.
+// 	 */
+// 	title: __( 'Selleads columns', 'Selleads Columns' ),
+// 	/**
+// 	 * This is a short description for your block, can be translated with `i18n` functions.
+// 	 * It will be shown in the Block Tab in the Settings Sidebar.
+// 	 */
+// 	description: __(
+// 		'Example block written with ESNext standard and JSX support – build step required.',
+// 		'selleads'
+// 	),
+// 	/**
+// 	 * Blocks are grouped into categories to help users browse and discover them.
+// 	 * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
+// 	 */
+// 	category: 'design',
+// 	/**
+// 	 * An icon property should be specified to make it easier to identify a block.
+// 	 * These can be any of WordPress’ Dashicons, or a custom svg element.
+// 	 */
+// 	icon: 'smiley',
+// 	/**
+// 	 * Optional block extended support features.
+// 	 */
+// 	supports: {
+// 		// Removes support for an HTML mode.
+// 		"html": false,
+// 		"anchor": true,
+// 	},
+// 	attributes: {
+// 		columns: {
+// 			type: "number",
+// 			default: "2"
+// 		},
+// 		colorParent: {
+// 			type: "string"
+// 		},
+// 		colorColumns: {
+// 			type: "string"
+// 		}, 
+// 		radiusParent: {
+// 			type: "number"
+// 		}, 
+// 		radiusColumns: {
+// 			type: "number"
+// 		}, 
+// 		paddingParent: {
+// 			type: "number",
+// 			default: 0
+// 		}, 
+// 		paddingColumns: {
+// 			type: "number",
+// 			default: 0
+// 		},
+// 		className: {
+// 			type: "string",
+// 			default: "aaaaaaaaaaa"
+// 		}
+// 	},
+// 	// getEditWrapperProps(props) {
+// 	// 	return {
+// 	// 		className: 'abc'
+// 	// 	}
+// 	// },
+// 	/**
+// 	 * @see ./edit.js
+// 	 */
+// 	edit: edit,
+// 	/**
+// 	 * @see ./save.js
+// 	 */
+// 	save
+// } );
+// registerBlockType( 'selleads/label', {
+// 	/**
+// 	 * This is the display title for your block, which can be translated with `i18n` functions.
+// 	 * The block inserter will show this name.
+// 	 */
+// 	title: __( 'Selleads label', 'Selleads' ),
+// 	/**
+// 	 * This is a short description for your block, can be translated with `i18n` functions.
+// 	 * It will be shown in the Block Tab in the Settings Sidebar.
+// 	 */
+// 	description: __(
+// 		'',
+// 		'selleads'
+// 	),
+// 	/**
+// 	 * Blocks are grouped into categories to help users browse and discover them.
+// 	 * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
+// 	 */
+// 	category: 'design',
+// 	/**
+// 	 * An icon property should be specified to make it easier to identify a block.
+// 	 * These can be any of WordPress’ Dashicons, or a custom svg element.
+// 	 */
+// 	icon: 'smiley',
+// 	/**
+// 	 * Optional block extended support features.
+// 	 */
+// 	supports: {
+// 		// Removes support for an HTML mode.
+// 		html: false,
+// 	},
+// 	attributes: {
+// 		"background": {
+// 			"color": {
+// 				"type": "string",
+// 				"default": "#ffffff"
+// 			},
+// 			"image": {
+// 				"type": "string",
+// 			}
+// 		},
+// 		border: {
+// 			radius: {
+// 				type: "number",
+// 				default: 5
+// 			},
+// 			width: {
+// 				type: "number",
+// 				default: 1
+// 			},
+// 			color: {
+// 				type: "string",
+// 				default: "#ffffff"
+// 			}
+// 		},
+// 		padding: {
+// 			inner: {
+// 				type: "number",
+// 				default: 25
+// 			},
+// 			outer: {
+// 				type: "number",
+// 				default: 15
+// 			}
+// 		},
+// 		dot: {
+// 			color: {
+// 				type: "string",
+// 				default: "#ffffff"
+// 			},
+// 			width: {
+// 				type: "string",
+// 				default: "#ffffff"
+// 			},
+// 		},
+// 		content: {
+// 			type: "string",
+// 			selector: "p"
+// 		},
+// 		heading: {
+// 			type: "string",
+// 			selector: "h1,h2,h3,h4,h5,h6"
+// 		}
+// 	},
+// 	/**
+// 	 * @see ./edit.js
+// 	 */
+// 	edit: edit3,
+// 	/**
+// 	 * @see ./save.js
+// 	 */
+// 	save3,
+// } );
+
+/**
+ * WordPress dependencies
+ */
+// import {
+// 	// registerBlockType,
+// 	setDefaultBlockName,
+// 	setFreeformContentHandlerName,
+// 	setUnregisteredTypeHandlerName,
+// 	setGroupingBlockName,
+// 	unstable__bootstrapServerSideBlockDefinitions, // eslint-disable-line camelcase
+// } from '@wordpress/blocks';
+
+
+
+
+/**
+ * Function to register an individual block.
+ *
+ * @param {Object} block The block to be registered.
+ *
+ */
+
+var registerBlock = function registerBlock(block) {
+  if (!block) {
+    return;
+  }
+
+  var settings = block.settings,
+      name = block.name; // if ( metadata ) {
+  // 	unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
+  // }
+
+  Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])(name, settings);
+};
+
+var registerSelleadsBlocks = function registerSelleadsBlocks(blocks) {
+  if (!blocks) return; // Common blocks are grouped at the top to prioritize their display
+  // in various contexts — like the inserter and auto-complete components.
+
+  blocks.forEach(registerBlock); // setDefaultBlockName( paragraph.name );
+  // if ( window.wp && window.wp.oldEditor ) {
+  // 	setFreeformContentHandlerName( classic.name );
+  // }
+  // setUnregisteredTypeHandlerName( missing.name );
+  // setGroupingBlockName( group.name );
+};
+
+registerSelleadsBlocks([_section__WEBPACK_IMPORTED_MODULE_3__, _column__WEBPACK_IMPORTED_MODULE_4__, _dotted_label__WEBPACK_IMPORTED_MODULE_5__]);
+
+/***/ }),
+
+/***/ "./src/section/block.json":
+/*!********************************!*\
+  !*** ./src/section/block.json ***!
+  \********************************/
+/*! exports provided: name, category, attributes, supports, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"name\":\"selleads/section\",\"category\":\"design\",\"attributes\":{\"columns\":{\"type\":\"number\",\"default\":\"2\"},\"colorParent\":{\"type\":\"string\"},\"colorColumns\":{\"type\":\"string\"},\"radiusParent\":{\"type\":\"number\"},\"radiusColumns\":{\"type\":\"number\"},\"paddingParent\":{\"type\":\"number\",\"default\":0},\"paddingColumns\":{\"type\":\"number\",\"default\":0}},\"supports\":{\"anchor\":true,\"html\":false}}");
+
+/***/ }),
+
+/***/ "./src/section/edit.js":
+/*!*****************************!*\
+  !*** ./src/section/edit.js ***!
+  \*****************************/
 /*! exports provided: toWidthPrecision, getEffectiveColumnWidth, getTotalColumnsWidth, getColumnWidths, getRedistributedColumnWidths, hasExplicitColumnWidths, getMappedColumnWidths, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -927,7 +1763,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
 /* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./editor.css */ "./src/columns/editor.css");
+/* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./editor.css */ "./src/section/editor.css");
 /* harmony import */ var _editor_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_editor_css__WEBPACK_IMPORTED_MODULE_13__);
 
 
@@ -1297,7 +2133,7 @@ function PlaceholderWrapper(_ref5) {
   }))));
 }
 
-var ColumnsEdit = function ColumnsEdit(props) {
+var SectionEdit = function SectionEdit(props) {
   var _props$attributes = props.attributes,
       colorParent = _props$attributes.colorParent,
       colorColumns = _props$attributes.colorColumns,
@@ -1408,13 +2244,13 @@ var ColumnsEdit = function ColumnsEdit(props) {
 }; // export default ColumnsEdit;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (ColumnsEdit);
+/* harmony default export */ __webpack_exports__["default"] = (SectionEdit);
 
 /***/ }),
 
-/***/ "./src/columns/editor.css":
+/***/ "./src/section/editor.css":
 /*!********************************!*\
-  !*** ./src/columns/editor.css ***!
+  !*** ./src/section/editor.css ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1423,10 +2259,77 @@ var ColumnsEdit = function ColumnsEdit(props) {
 
 /***/ }),
 
-/***/ "./src/columns/save2.js":
+/***/ "./src/section/index.js":
 /*!******************************!*\
-  !*** ./src/columns/save2.js ***!
+  !*** ./src/section/index.js ***!
   \******************************/
+/*! exports provided: name, settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "name", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/section/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/section/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/section/block.json");
+var _block_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./block.json */ "./src/section/block.json", 1);
+ // import { audio as icon } from '@wordpress/icons';
+
+
+
+
+var name = "selleads/section";
+var settings = {
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Selleads - sekcja elementów'),
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Element, który tworzy zbiornik dla elementów w nim umieszczonych'),
+  keywords: [Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('selleads'), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('section')],
+  "category": "design",
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": "2"
+    },
+    "colorParent": {
+      "type": "string"
+    },
+    "colorColumns": {
+      "type": "string"
+    },
+    "radiusParent": {
+      "type": "number"
+    },
+    "radiusColumns": {
+      "type": "number"
+    },
+    "paddingParent": {
+      "type": "number",
+      "default": 0
+    },
+    "paddingColumns": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "html": false
+  },
+  // icon,
+  // transforms,
+  // deprecated,
+  edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
+};
+
+/***/ }),
+
+/***/ "./src/section/save.js":
+/*!*****************************!*\
+  !*** ./src/section/save.js ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1461,769 +2364,6 @@ __webpack_require__.r(__webpack_exports__);
 function save2() {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("dv", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"].Content, null));
 }
-
-/***/ }),
-
-/***/ "./src/columns/variations.js":
-/*!***********************************!*\
-  !*** ./src/columns/variations.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-
-
-/**
- * WordPress dependencies
- */
-
-
-/** @typedef {import('@wordpress/blocks').WPBlockVariation} WPBlockVariation */
-
-/**
- * Template option choices for predefined columns layouts.
- *
- * @type {WPBlockVariation[]}
- */
-
-var variations = [{
-  name: 'two-columns-equal',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('50 / 50'),
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Two columns; equal split'),
-  icon: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SVG"], {
-    width: "48",
-    height: "48",
-    viewBox: "0 0 48 48",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Path"], {
-    fillRule: "evenodd",
-    clipRule: "evenodd",
-    d: "M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z"
-  })),
-  isDefault: true,
-  innerBlocks: [['selleads/column'], ['selleads/column']],
-  scope: ['block']
-}, {
-  name: 'two-columns-one-third-two-thirds',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('30 / 70'),
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Two columns; one-third, two-thirds split'),
-  icon: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SVG"], {
-    width: "48",
-    height: "48",
-    viewBox: "0 0 48 48",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Path"], {
-    fillRule: "evenodd",
-    clipRule: "evenodd",
-    d: "M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H20V34H39ZM18 34H9V14H18V34Z"
-  })),
-  innerBlocks: [['core/column', {
-    width: '33.33%'
-  }], ['core/column', {
-    width: '66.66%'
-  }]],
-  scope: ['block']
-}, {
-  name: 'two-columns-two-thirds-one-third',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('70 / 30'),
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Two columns; two-thirds, one-third split'),
-  icon: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SVG"], {
-    width: "48",
-    height: "48",
-    viewBox: "0 0 48 48",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Path"], {
-    fillRule: "evenodd",
-    clipRule: "evenodd",
-    d: "M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H30V34H39ZM28 34H9V14H28V34Z"
-  })),
-  innerBlocks: [['core/column', {
-    width: '66.66%'
-  }], ['core/column', {
-    width: '33.33%'
-  }]],
-  scope: ['block']
-}, {
-  name: 'three-columns-equal',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('33 / 33 / 33'),
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Three columns; equal split'),
-  icon: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SVG"], {
-    width: "48",
-    height: "48",
-    viewBox: "0 0 48 48",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Path"], {
-    fillRule: "evenodd",
-    d: "M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z"
-  })),
-  innerBlocks: [['core/column'], ['core/column'], ['core/column']],
-  scope: ['block']
-}, {
-  name: 'three-columns-wider-center',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('25 / 50 / 25'),
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Three columns; wide center column'),
-  icon: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SVG"], {
-    width: "48",
-    height: "48",
-    viewBox: "0 0 48 48",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Path"], {
-    fillRule: "evenodd",
-    d: "M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM31 34H17V14h14v20zm2 0V14h6v20h-6zm-18 0H9V14h6v20z"
-  })),
-  innerBlocks: [['core/column', {
-    width: '25%'
-  }], ['core/column', {
-    width: '50%'
-  }], ['core/column', {
-    width: '25%'
-  }]],
-  scope: ['block']
-}];
-/* harmony default export */ __webpack_exports__["default"] = (variations);
-
-/***/ }),
-
-/***/ "./src/dotted-label/edit.css":
-/*!***********************************!*\
-  !*** ./src/dotted-label/edit.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "./src/dotted-label/edit.js":
-/*!**********************************!*\
-  !*** ./src/dotted-label/edit.js ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _edit_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit.css */ "./src/dotted-label/edit.css");
-/* harmony import */ var _edit_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_edit_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-var INNER_BLOCKS_TEMPLATE = [['core/heading', {
-  level: 5,
-  placeholder: 'Nagłówek',
-  className: 'selleads-label--header'
-}]];
-
-var hex_to_rgb = function hex_to_rgb(hex) {
-  var normal = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
-  if (normal) return normal.slice(1).map(function (e) {
-    return parseInt(e, 16);
-  });
-  var shorthand = hex.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/i);
-  if (shorthand) return shorthand.slice(1).map(function (e) {
-    return 0x11 * parseInt(e, 16);
-  });
-  return null;
-};
-
-function edit3(_ref) {
-  var _padding$outer, _padding$inner, _border$radius, _border$width, _border$color, _dot$width, _dot$width2, _dot$width3, _dot$color, _background$color, _border$radius2, _border$width2, _border$color2, _padding$outer2, _padding$inner2, _dot$color2, _dot$width4;
-
-  var attributes = _ref.attributes,
-      setAttributes = _ref.setAttributes,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["attributes", "setAttributes"]);
-
-  var background = attributes.background,
-      border = attributes.border,
-      padding = attributes.padding,
-      dot = attributes.dot,
-      content = attributes.content;
-  console.log(props);
-  var wrapperStyle = {
-    "padding": "".concat(padding === null || padding === void 0 ? void 0 : (_padding$outer = padding.outer) === null || _padding$outer === void 0 ? void 0 : _padding$outer.value, "px")
-  };
-  var itemStyle = {
-    "padding": "".concat(padding === null || padding === void 0 ? void 0 : (_padding$inner = padding.inner) === null || _padding$inner === void 0 ? void 0 : _padding$inner.value, "px"),
-    "borderRadius": "".concat(border === null || border === void 0 ? void 0 : (_border$radius = border.radius) === null || _border$radius === void 0 ? void 0 : _border$radius.value, "px"),
-    "borderWidth": "".concat(border === null || border === void 0 ? void 0 : (_border$width = border.width) === null || _border$width === void 0 ? void 0 : _border$width.value, "px"),
-    "borderColor": border === null || border === void 0 ? void 0 : (_border$color = border.color) === null || _border$color === void 0 ? void 0 : _border$color.value
-  };
-
-  if (background === null || background === void 0 ? void 0 : background.image) {
-    itemStyle.background = "".concat(background === null || background === void 0 ? void 0 : background.color.value, " url(").concat(background.image.value, ") center/center no-repeat");
-  } else {
-    itemStyle.backgroundColor = background === null || background === void 0 ? void 0 : background.color.value;
-  }
-
-  var dotStyle = {
-    padding: "".concat(dot === null || dot === void 0 ? void 0 : (_dot$width = dot.width) === null || _dot$width === void 0 ? void 0 : _dot$width.value, "px")
-  };
-  var colors = [{
-    name: 'red',
-    color: '#f00'
-  }, {
-    name: 'white',
-    color: '#fff'
-  }, {
-    name: 'blue',
-    color: '#00f'
-  }];
-  var dotBeforeStyle = {
-    width: "".concat(dot === null || dot === void 0 ? void 0 : (_dot$width2 = dot.width) === null || _dot$width2 === void 0 ? void 0 : _dot$width2.value, "px"),
-    height: "".concat(dot === null || dot === void 0 ? void 0 : (_dot$width3 = dot.width) === null || _dot$width3 === void 0 ? void 0 : _dot$width3.value, "px"),
-    backgroundColor: dot === null || dot === void 0 ? void 0 : (_dot$color = dot.color) === null || _dot$color === void 0 ? void 0 : _dot$color.value
-  };
-
-  if (dot === null || dot === void 0 ? void 0 : dot.color) {
-    var hex2rgb = hex_to_rgb(dot === null || dot === void 0 ? void 0 : dot.color.value);
-    dotStyle.backgroundColor = "rgba(".concat(hex2rgb[0], ",").concat(hex2rgb[1], ",").concat(hex2rgb[2], ",0.5)");
-  }
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
-    title: "Zarz\u0105danie t\u0142em",
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-    className: "components-custom-select-control__label"
-  }, "Kolor t\u0142a")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ColorPicker"], {
-    color: background === null || background === void 0 ? void 0 : (_background$color = background.color) === null || _background$color === void 0 ? void 0 : _background$color.value,
-    onChangeComplete: function onChangeComplete(e) {
-      return setAttributes({
-        background: _objectSpread(_objectSpread({}, background), {}, {
-          color: {
-            value: e.hex
-          }
-        })
-      });
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
-    title: "Obramowanie",
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
-    label: "Zaokr\u0105glenie",
-    value: border === null || border === void 0 ? void 0 : (_border$radius2 = border.radius) === null || _border$radius2 === void 0 ? void 0 : _border$radius2.value,
-    onChange: function onChange(e) {
-      return setAttributes({
-        border: _objectSpread(_objectSpread({}, border), {}, {
-          radius: {
-            value: e
-          }
-        })
-      });
-    },
-    min: 0,
-    max: 50
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
-    label: "Grubo\u015B\u0107 ramki",
-    value: border === null || border === void 0 ? void 0 : (_border$width2 = border.width) === null || _border$width2 === void 0 ? void 0 : _border$width2.value,
-    onChange: function onChange(e) {
-      return setAttributes({
-        border: _objectSpread(_objectSpread({}, border), {}, {
-          width: {
-            value: e
-          }
-        })
-      });
-    },
-    min: 0,
-    max: 50
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-    className: "components-custom-select-control__label"
-  }, "Kolor obramowania")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ColorPicker"], {
-    color: border === null || border === void 0 ? void 0 : (_border$color2 = border.color) === null || _border$color2 === void 0 ? void 0 : _border$color2.value,
-    onChangeComplete: function onChangeComplete(e) {
-      return setAttributes({
-        border: _objectSpread(_objectSpread({}, border), {}, {
-          color: {
-            value: e.hex
-          }
-        })
-      });
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
-    title: "Wg\u0142\u0119bienie",
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
-    label: "Zewn\u0119trzne",
-    value: padding === null || padding === void 0 ? void 0 : (_padding$outer2 = padding.outer) === null || _padding$outer2 === void 0 ? void 0 : _padding$outer2.value,
-    onChange: function onChange(e) {
-      return setAttributes({
-        padding: _objectSpread(_objectSpread({}, padding), {}, {
-          outer: {
-            value: e
-          }
-        })
-      });
-    },
-    min: 0,
-    max: 50
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
-    label: "Wewn\u0119trzne",
-    value: padding === null || padding === void 0 ? void 0 : (_padding$inner2 = padding.inner) === null || _padding$inner2 === void 0 ? void 0 : _padding$inner2.value,
-    onChange: function onChange(e) {
-      return setAttributes({
-        padding: _objectSpread(_objectSpread({}, padding), {}, {
-          inner: {
-            value: e
-          }
-        })
-      });
-    },
-    min: 0,
-    max: 50
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelBody"], {
-    title: "Ustawienia kropki",
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
-    className: "components-custom-select-control__label"
-  }, "Kolor")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ColorPicker"], {
-    color: dot === null || dot === void 0 ? void 0 : (_dot$color2 = dot.color) === null || _dot$color2 === void 0 ? void 0 : _dot$color2.value,
-    onChangeComplete: function onChangeComplete(e) {
-      return setAttributes({
-        dot: _objectSpread(_objectSpread({}, dot), {}, {
-          color: {
-            value: e.hex
-          }
-        })
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["RangeControl"], {
-    label: "Rozmiar",
-    value: dot === null || dot === void 0 ? void 0 : (_dot$width4 = dot.width) === null || _dot$width4 === void 0 ? void 0 : _dot$width4.value,
-    onChange: function onChange(e) {
-      return setAttributes({
-        dot: _objectSpread(_objectSpread({}, dot), {}, {
-          width: {
-            value: e
-          }
-        })
-      });
-    },
-    min: 10,
-    max: 50
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "selleads-label--wrapper",
-    style: wrapperStyle
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "selleads-label--item",
-    style: itemStyle
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "selleads-label-dot",
-    style: dotStyle
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "selleads-label-dot--pseudo-before",
-    style: dotBeforeStyle
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, "Dot before"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "selleads-label-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["InnerBlocks"], {
-    templateLock: "all",
-    __experimentalPassedProps: {// className: 'selleads-label--header',
-    },
-    template: INNER_BLOCKS_TEMPLATE
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__["RichText"], {
-    identifier: "content",
-    tagName: "p",
-    value: content,
-    onChange: function onChange(value) {
-      return setAttributes({
-        content: value
-      });
-    },
-    onSplit: function onSplit(value) {
-      if (!value) {
-        return createBlock('core/paragraph');
-      }
-
-      return createBlock('core/heading', _objectSpread(_objectSpread({}, attributes), {}, {
-        content: value
-      }));
-    },
-    placeholder: 'Simple text filling the column ...',
-    className: "selleads-label--header" // { ...blockWrapperProps }
-
-  })))));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (edit3);
-
-/***/ }),
-
-/***/ "./src/dotted-label/save.js":
-/*!**********************************!*\
-  !*** ./src/dotted-label/save.js ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save3; });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-
-
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
-
-function save3() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads – hello from the saved content!', 'selleads'));
-}
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _columns_variations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./columns/variations */ "./src/columns/variations.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _column_edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./column/edit */ "./src/column/edit.js");
-/* harmony import */ var _column_save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./column/save */ "./src/column/save.js");
-/* harmony import */ var _columns_ColumnsEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./columns/ColumnsEdit */ "./src/columns/ColumnsEdit.js");
-/* harmony import */ var _columns_save2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./columns/save2 */ "./src/columns/save2.js");
-/* harmony import */ var _dotted_label_edit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dotted-label/edit */ "./src/dotted-label/edit.js");
-/* harmony import */ var _dotted_label_save__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dotted-label/save */ "./src/dotted-label/save.js");
-/**
- * Registers a new block provided a unique name and an object defining its behavior.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
- */
-
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
-
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-
-/**
- * Internal dependencies
- */
-
-
-
-
-
-
- // import Edit3 from './edit';
-// import save3 from './save';
-
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
- */
-
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('selleads/column', {
-  /**
-   * This is the display title for your block, which can be translated with `i18n` functions.
-   * The block inserter will show this name.
-   */
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads', 'Selleads column'),
-
-  /**
-   * This is a short description for your block, can be translated with `i18n` functions.
-   * It will be shown in the Block Tab in the Settings Sidebar.
-   */
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Example block written with ESNext standard and JSX support – build step required.', 'selleads'),
-
-  /**
-   * Blocks are grouped into categories to help users browse and discover them.
-   * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
-   */
-  category: 'design',
-
-  /**
-   * An icon property should be specified to make it easier to identify a block.
-   * These can be any of WordPress’ Dashicons, or a custom svg element.
-   */
-  icon: 'smiley',
-
-  /**
-   * Optional block extended support features.
-   */
-  supports: {
-    // Removes support for an HTML mode.
-    html: false
-  },
-  attributes: {
-    content: {
-      type: 'string',
-      selector: 'p'
-    },
-    picture: {
-      id: {
-        type: 'number'
-      },
-      url: {
-        type: 'string'
-      }
-    },
-    bgColor: {
-      type: 'string'
-    },
-    borderRadius: {
-      type: 'number'
-    },
-    alignSelf: {
-      type: 'string',
-      default: "center"
-    },
-    padding: {
-      type: "number",
-      default: "30"
-    },
-    width: {
-      type: "number"
-    }
-  },
-
-  /**
-   * @see ./edit.js
-   */
-  edit: _column_edit__WEBPACK_IMPORTED_MODULE_4__["default"],
-
-  /**
-   * @see ./save.js
-   */
-  save1: _column_save__WEBPACK_IMPORTED_MODULE_5__["default"]
-});
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('selleads/columns', {
-  /**
-   * This is the display title for your block, which can be translated with `i18n` functions.
-   * The block inserter will show this name.
-   */
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads columns', 'Selleads Columns'),
-
-  /**
-   * This is a short description for your block, can be translated with `i18n` functions.
-   * It will be shown in the Block Tab in the Settings Sidebar.
-   */
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Example block written with ESNext standard and JSX support – build step required.', 'selleads'),
-
-  /**
-   * Blocks are grouped into categories to help users browse and discover them.
-   * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
-   */
-  category: 'design',
-
-  /**
-   * An icon property should be specified to make it easier to identify a block.
-   * These can be any of WordPress’ Dashicons, or a custom svg element.
-   */
-  icon: 'smiley',
-
-  /**
-   * Optional block extended support features.
-   */
-  supports: {
-    // Removes support for an HTML mode.
-    "html": false,
-    "anchor": true
-  },
-  attributes: {
-    columns: {
-      type: "number",
-      default: "2"
-    },
-    colorParent: {
-      type: "string"
-    },
-    colorColumns: {
-      type: "string"
-    },
-    radiusParent: {
-      type: "number"
-    },
-    radiusColumns: {
-      type: "number"
-    },
-    paddingParent: {
-      type: "number",
-      default: 0
-    },
-    paddingColumns: {
-      type: "number",
-      default: 0
-    },
-    className: {
-      type: "string",
-      default: "aaaaaaaaaaa"
-    }
-  },
-  // getEditWrapperProps(props) {
-  // 	return {
-  // 		className: 'abc'
-  // 	}
-  // },
-
-  /**
-   * @see ./edit.js
-   */
-  edit: _columns_ColumnsEdit__WEBPACK_IMPORTED_MODULE_6__["default"],
-
-  /**
-   * @see ./save.js
-   */
-  save: _columns_save2__WEBPACK_IMPORTED_MODULE_7__["default"]
-});
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('selleads/label', {
-  /**
-   * This is the display title for your block, which can be translated with `i18n` functions.
-   * The block inserter will show this name.
-   */
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Selleads label', 'Selleads'),
-
-  /**
-   * This is a short description for your block, can be translated with `i18n` functions.
-   * It will be shown in the Block Tab in the Settings Sidebar.
-   */
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('', 'selleads'),
-
-  /**
-   * Blocks are grouped into categories to help users browse and discover them.
-   * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
-   */
-  category: 'design',
-
-  /**
-   * An icon property should be specified to make it easier to identify a block.
-   * These can be any of WordPress’ Dashicons, or a custom svg element.
-   */
-  icon: 'smiley',
-
-  /**
-   * Optional block extended support features.
-   */
-  supports: {
-    // Removes support for an HTML mode.
-    html: false
-  },
-  attributes: {
-    "background": {
-      "color": {
-        "type": "string",
-        "default": "#ffffff"
-      },
-      "image": {
-        "type": "string"
-      }
-    },
-    border: {
-      radius: {
-        type: "number",
-        default: 5
-      },
-      width: {
-        type: "number",
-        default: 1
-      },
-      color: {
-        type: "string",
-        default: "#ffffff"
-      }
-    },
-    padding: {
-      inner: {
-        type: "number",
-        default: 25
-      },
-      outer: {
-        type: "number",
-        default: 15
-      }
-    },
-    dot: {
-      color: {
-        type: "string",
-        default: "#ffffff"
-      },
-      width: {
-        type: "string",
-        default: "#ffffff"
-      }
-    },
-    content: {
-      type: "string",
-      selector: "p"
-    },
-    heading: {
-      type: "string",
-      selector: "h1,h2,h3,h4,h5,h6"
-    }
-  },
-
-  /**
-   * @see ./edit.js
-   */
-  edit: _dotted_label_edit__WEBPACK_IMPORTED_MODULE_8__["default"],
-
-  /**
-   * @see ./save.js
-   */
-  save3: _dotted_label_save__WEBPACK_IMPORTED_MODULE_9__["default"]
-});
 
 /***/ }),
 
