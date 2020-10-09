@@ -1,0 +1,27 @@
+{
+	"name": "selleads/section",
+	"category": "design",
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": "2"
+		},
+		"backgroundImage": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		}, 
+		"radius": {
+            "type": "number",
+            "default": 5
+		}, 
+		"padding": {
+			"type": "number",
+			"default": 15
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}
