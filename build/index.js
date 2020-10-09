@@ -1469,14 +1469,19 @@ var edit = function edit(_ref) {
   var attributes = _ref.attributes,
       setAttributes = _ref.setAttributes;
   var align = attributes.align,
+      alignItems = attributes.alignItems,
       image = attributes.image,
       color = attributes.color,
-      radius = attributes.radius,
-      padding = attributes.padding;
+      padding = attributes.padding,
+      borderRadius = attributes.borderRadius,
+      borderWidth = attributes.borderWidth,
+      borderColor = attributes.borderColor;
   var styling = {
     backgroundColor: color,
     padding: "".concat(padding, "px"),
-    borderRadius: "".concat(radius, "px")
+    borderRadius: "".concat(borderRadius, "px"),
+    border: "".concat(borderWidth, "px solid ").concat(borderColor),
+    alignItems: alignItems
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
     title: "Zarz\u0105dzanie t\u0142em"
@@ -1485,6 +1490,67 @@ var edit = function edit(_ref) {
     onChangeComplete: function onChangeComplete(e) {
       return setAttributes({
         color: e.hex
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: "Zarz\u0105dzanie t\u0142em"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+    label: "Zaokr\u0105glenie",
+    value: borderRadius,
+    onChange: function onChange(e) {
+      return setAttributes({
+        borderRadius: e
+      });
+    },
+    min: 0,
+    max: 50
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+    label: "Grubo\u015B\u0107 ramki",
+    value: borderWidth,
+    onChange: function onChange(e) {
+      return setAttributes({
+        borderWidth: e
+      });
+    },
+    min: 0,
+    max: 50
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", {
+    className: "components-custom-select-control__label"
+  }, "Kolor obramowania")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
+    color: borderColor ? borderColor : '#fff',
+    onChangeComplete: function onChangeComplete(e) {
+      return setAttributes({
+        borderColor: e.hex
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: "Zarz\u0105dzanie tre\u015Bci\u0105"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+    label: "Wg\u0142\u0119bienie tre\u015Bci",
+    value: padding,
+    onChange: function onChange(e) {
+      return setAttributes({
+        padding: e
+      });
+    },
+    min: 0,
+    max: 50
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: "Pozycja tre\u015Bci",
+    value: alignItems,
+    options: [{
+      label: 'Góra',
+      value: 'flex-start'
+    }, {
+      label: 'Środek',
+      value: 'center'
+    }, {
+      label: 'Dół',
+      value: 'flex-end'
+    }],
+    onChange: function onChange(e) {
+      setAttributes({
+        alignItems: e
       });
     }
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -1540,6 +1606,10 @@ var settings = {
       "type": "string",
       "default": 'full'
     },
+    "alignItems": {
+      "type": "string",
+      "default": "center"
+    },
     "image": {
       "type": "string"
     },
@@ -1547,13 +1617,21 @@ var settings = {
       "type": "string",
       "default": "#fff"
     },
-    "radius": {
-      "type": "number",
-      "default": 5
-    },
     "padding": {
       "type": "number",
       "default": 25
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 5
+    },
+    "borderWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "borderColor": {
+      "type": "string",
+      "default": null
     }
   },
   "supports": {
