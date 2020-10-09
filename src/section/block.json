@@ -6,22 +6,29 @@
 			"type": "number",
 			"default": "2"
 		},
-		"backgroundImage": {
+		"colorParent": {
 			"type": "string"
 		},
-		"backgroundColor": {
+		"colorColumns": {
 			"type": "string"
 		}, 
-		"radius": {
-            "type": "number",
-            "default": 5
+		"radiusParent": {
+			"type": "number"
 		}, 
-		"padding": {
+		"radiusColumns": {
+			"type": "number"
+		}, 
+		"paddingParent": {
 			"type": "number",
-			"default": 15
+			"default": 0
+		}, 
+		"paddingColumns": {
+			"type": "number",
+			"default": 0
 		}
 	},
 	"supports": {
+        "anchor": true,
 		"html": false
 	}
 }
