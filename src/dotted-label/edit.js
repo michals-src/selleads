@@ -41,7 +41,7 @@ const hex_to_rgb = (hex) => {
     return null;
   }
 
-function edit3({
+function edit({
     attributes,
     setAttributes,
     ...props
@@ -55,7 +55,7 @@ function edit3({
         dot,
         content
     } = attributes;
-    console.log(props);
+
     let wrapperStyle = {
         "padding": `${padding?.outer?.value}px`,
     };
@@ -219,4 +219,4 @@ function edit3({
     )
 }
 
-export default edit3
+export default edit
