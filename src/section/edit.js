@@ -1,13 +1,15 @@
 import { 
 	PanelBody, 
 	RangeControl, 
+	PanelRow,
 	Placeholder, 
 	Toolbar, 
 	ToolbarButton, 
 	ToolbarGroup, 
 	Button,
 	ColorPalette,
-	ColorPicker
+	ColorPicker,
+	SelectControl
 } from '@wordpress/components';
 
 import {
@@ -29,16 +31,21 @@ const edit = ({
 
 	const {
 		align,
+		alignItems,
 		image,
 		color,
-		radius,
-		padding
+		padding,
+		borderRadius,
+		borderWidth,
+		borderColor
 	} = attributes;
 
 	let styling = {
 		backgroundColor: color,
 		padding: `${padding}px`,
-		borderRadius: `${radius}px`,
+		borderRadius: `${borderRadius}px`,
+		border: `${borderWidth}px solid ${borderColor}`,
+		alignItems: alignItems,
 	};
 
 	return (
@@ -48,6 +55,50 @@ const edit = ({
 					<ColorPicker
 						color={ color }
 						onChangeComplete={ ( e ) => setAttributes({ color: e.hex} ) }
+					/>
+				</PanelBody>
+				<PanelBody title="Zarządzanie tłem">
+					<RangeControl
+						label="Zaokrąglenie"
+						value={ borderRadius }
+						onChange={ ( e ) => setAttributes( { borderRadius: e } ) }
+						min={ 0 }
+						max={ 50 }
+					/>
+					<RangeControl
+						label="Grubość ramki"
+						value={ borderWidth }
+						onChange={ ( e ) => setAttributes( { borderWidth: e } ) }
+						min={ 0 }
+						max={ 50 }
+					/>
+					<PanelRow>
+						<label className="components-custom-select-control__label">
+							Kolor obramowania
+						</label>
+					</PanelRow>
+					<ColorPicker
+						color={ borderColor ? borderColor : '#fff' }
+						onChangeComplete={ ( e ) => setAttributes( { borderColor: e.hex } ) }
+					/>
+				</PanelBody>
+				<PanelBody title="Zarządzanie treścią">
+					<RangeControl
+						label="Wgłębienie treści"
+						value={ padding }
+						onChange={ ( e ) => setAttributes( { padding: e } ) }
+						min={ 0 }
+						max={ 50 }
+					/>
+					<SelectControl
+						label="Pozycja treści"
+						value={ alignItems }
+						options={ [
+							{ label: 'Góra', value: 'flex-start' },
+							{ label: 'Środek', value: 'center' },
+							{ label: 'Dół', value: 'flex-end' },
+						] }
+						onChange={ ( e ) => { setAttributes( { alignItems: e } ) } }
 					/>
 				</PanelBody>
 			</InspectorControls>
