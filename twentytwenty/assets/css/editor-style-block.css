@@ -1,10 +1,16 @@
+/* -------------------- */
+/*         Fonts        */
+/* -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;1,300;1,400;1,700;1,800&display=swap');
+
+
 /* ------------------------------------------- */
 
 /*	Twenty Twenty Editor Styles — Block Editor
 /* ------------------------------------------- */
 
 .editor-styles-wrapper {
-	background: #f5efe0;
+	background: #fff;
 	color: #000;
 	letter-spacing: -0.015em;
 	-moz-font-smoothing: antialiased;
@@ -115,7 +121,7 @@ Inter variable font. Usage:
 .editor-styles-wrapper ul,
 .editor-styles-wrapper dl,
 .editor-styles-wrapper dt {
-	font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Times New Roman", serif;
+	font-family: 'Montserrat', sans-serif;
 	letter-spacing: normal;
 }
 
