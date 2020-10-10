@@ -24,7 +24,11 @@ import './style.scss';
 
 import * as section from './section';
 import * as column from './column';
-import * as label from './dotted-label';
+import * as columns from './columns';
+import * as label from './label';
+import * as labels from './labels';
+import * as cover from './cover';
+import * as media_text from './media-text';
 
 /**
  * Function to register an individual block.
@@ -64,7 +68,11 @@ const registerSelleadsBlocks = (blocks) => {
 registerSelleadsBlocks([
 	section,
 	column,
-	label
+	columns,
+	label,
+	labels,
+	cover,
+	media_text
 ]);
 
 

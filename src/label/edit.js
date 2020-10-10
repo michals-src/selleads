@@ -21,6 +21,11 @@ import {
     ColorPicker
 } from "@wordpress/components";
 
+import { compose, withInstanceId, useInstanceId, createHigherOrderComponent} from '@wordpress/compose';
+
+import { withFilters } from '@wordpress/components';
+import { addFilter } from '@wordpress/hooks';
+
 const INNER_BLOCKS_TEMPLATE = [
     [
 		'core/heading',
@@ -219,4 +224,23 @@ function edit({
     )
 }
 
-export default edit
+const withClientIdClassName = createHigherOrderComponent( ( BlockListBlock ) => {
+    return ( props ) => {
+
+		if ( props.name !== 'selleads/label' ) {
+			return <BlockListBlock { ...props } />
+		}
+
+        // console.log(props.attributes.width);
+        const wrapperProps = {};
+        wrapperProps.style = {
+            flexBasis: `50%`
+        }
+        return <BlockListBlock { ...props } className={ "block-" + props.clientId } wrapperProps={wrapperProps}
+        />;
+    };
+}, 'withClientIdClassName' );
+ 
+addFilter( 'editor.BlockListBlock', 'my-plugin/with-client-id-class-name', withClientIdClassName );
+
+export default withFilters( 'editor.BlockListBlock' )( edit )

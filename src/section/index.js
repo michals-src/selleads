@@ -28,7 +28,7 @@ export const settings = {
 		},
 		"color": {
 			"type": "string",
-			"default": "#fff"
+			"default": "transparent"
 		},
 		"padding": {
 			"type": "number",

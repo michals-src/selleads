@@ -15,6 +15,69 @@
 	width: 1100px;
 	margin: 0 auto;
 }
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.columns-parent{
+	padding: 30px;
+	margin: 0;
+	border-radius: none;
+}
+
+.columns-container .columns-inner-block{
+	display: flex;
+	flex: 1;
+	padding: 10px;
+	flex-wrap: wrap;
+}
+
+.columns-container .columns-inner-block .wp-block[data-type="selleads/column"]{
+	flex: 1;
+	display: flex;
+	margin: 0;
+}
+
+.columns-item{
+	width: 100%;
+	padding: 5px;
+	border-radius: none;
+}
+
+.columns-item-container{
+	padding: 15px;
+}
+
+.columns-item-container header{
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 25px;
+}
+
+.columns-item-container header h1,
+.columns-item-container header h2,
+.columns-item-container header h3,
+.columns-item-container header h4,
+.columns-item-container header h5,
+.columns-item-container header h6{
+	margin-top: 5px !important;
+	margin-bottom: 8px !important;
+	font-weight: 400 !important;
+}
+
+.columns-item-heading.is-uppercase{
+	text-transform: uppercase;
+}
+.columns-item-heading.is-sub_title{
+	font-weight: 700 !important;
+	color: #555;
+}
+
+.columns-item-container figure{
+	display: flex;
+}
 .selleads-label--object{
     display: flex;
     flex: 1;
@@ -82,5 +145,155 @@
         margin-top: 5px !important;
         margin-bottom: 8px !important;
     }
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .columns-parent{
+	padding: 30px;
+	margin: 0;
+	border-radius: none;
+}
+
+.columns-container .columns-inner-block{
+	display: flex;
+	flex: 1;
+	padding: 10px;
+	flex-wrap: wrap;
+}
+
+.columns-container .columns-inner-block .wp-block[data-type="selleads/column"]{
+	flex: 1;
+	display: flex;
+	margin: 0;
+}
+
+.columns-item{
+	width: 100%;
+	padding: 5px;
+	border-radius: none;
+}
+
+.columns-item-container{
+	padding: 15px;
+}
+
+.columns-item-container header{
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 25px;
+}
+
+.columns-item-container header h1,
+.columns-item-container header h2,
+.columns-item-container header h3,
+.columns-item-container header h4,
+.columns-item-container header h5,
+.columns-item-container header h6{
+	margin-top: 5px !important;
+	margin-bottom: 8px !important;
+	font-weight: 400 !important;
+}
+
+.columns-item-heading.is-uppercase{
+	text-transform: uppercase;
+}
+.columns-item-heading.is-sub_title{
+	font-weight: 700 !important;
+	color: #555;
+}
+
+.columns-item-container figure{
+	display: flex;
+}
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-create-block-experiment-block-1 {
+	border: 1px dotted #f00;
+}
+
+
+.selleads-header{
+	background: #fff url(https://images.unsplash.com/photo-1599422314077-f4dfdaa4cd09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80) center no-repeat;
+	background-origin: content-box;
+    background-clip: content-box;
+	color: #fff;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.selleads-header--container{
+	padding: 100px 20px;
+	min-height:650px;
+	max-width: 1160px;
+	margin-left: auto;
+	margin-right: auto;
+	display:flex;
+	align-items: flex-end;
+	box-sizing: border-box;
+}
+@media screen and (max-width: 768px){
+	.selleads-header--container{
+		padding: 70px;
+	}
+}
+
+.selleads-header--captions{
+	margin-right: auto;
+	max-width: 780px;
+}
+
+.selleads-header--title{
+	text-shadow: 0 5px 15px rgba(0, 0, 0, 0.35)
+}
+
+.selleads-header--sub_title h4,
+.selleads-header--sub_title h5,
+.selleads-header--sub_title h6{
+	font-weight: 400 !important;
+	margin-top: 1rem !important;
+}
+.selleads-text-image{
+
+}
+
+.selleads-text-image--container{
+	display:flex;
+	align-items: center;
+}
+
+.selleads-text-image--text{
+	padding: 30px;
+	background-color: #c4e0ff4d;
+	color: #000;
+	flex: 1;
+}
+	.selleads-text-image--text-content{
+		padding-right: 105px;
+	}
+
+	.selleads-text-image--text header h6{
+		text-transform: uppercase;
+		font-weight: 700 !important;
+		margin-top: 0 !important;
+		margin-bottom: 10px !important;
+	}
+	
+	.selleads-text-image--text header h3{
+		font-weight: 400 !important;
+		margin-top: 10px !important;
+		margin-bottom: 30px !important;
+	}
+
+.selleads-text-image--image{
+	margin-left: -125px;
+	flex: 0.8;
+}
 
 /*# sourceMappingURL=index.css.map*/

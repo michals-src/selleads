@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -14,8 +15,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @return {WPElement} Element to render.
  */
-export default function save3() {
+export default function save() {
 	return (
-		<p>{ __( 'Selleads – hello from the saved content!', 'selleads' ) }</p>
+		<dv>
+			<InnerBlocks.Content />
+		</dv>
 	);
 }

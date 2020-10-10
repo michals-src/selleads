@@ -91,9 +91,8 @@ function edit({
     const { content, picture, bgColor, borderRadius, alignSelf, padding, width } = attributes;
     const isPicture = picture ? true : false;
 
-    const handleColor = (color) => setAttributes({bgColor: color});
+    const handleColor = (e) => setAttributes({bgColor: e.color});
     const handleBorderRadius = (radius) => setAttributes({borderRadius: radius});
-
 
     const handlePicture = (e) => setAttributes({picture: { ...picture, id: e.id, url: e.url}});
     const handleText = () => setAttributes({ picture: null });
@@ -109,8 +108,8 @@ function edit({
         alignSelf: alignSelf
     }
 
-    if( ! picture && bgColor ){
-        containerStyle.backgroundColor = bgColor?.color;
+    if( ! picture && bgColor !== "undefined" ){
+        containerStyle.backgroundColor = bgColor;
     }
 
     // if( width !== null && width !== undefined ){

@@ -1,0 +1,36 @@
+.selleads-text-image{
+
+}
+
+.selleads-text-image--container{
+	display:flex;
+	align-items: center;
+}
+
+.selleads-text-image--text{
+	padding: 30px;
+	background-color: #c4e0ff4d;
+	color: #000;
+	flex: 1;
+}
+	.selleads-text-image--text-content{
+		padding-right: 105px;
+	}
+
+	.selleads-text-image--text header h6{
+		text-transform: uppercase;
+		font-weight: 700 !important;
+		margin-top: 0 !important;
+		margin-bottom: 10px !important;
+	}
+	
+	.selleads-text-image--text header h3{
+		font-weight: 400 !important;
+		margin-top: 10px !important;
+		margin-bottom: 30px !important;
+	}
+
+.selleads-text-image--image{
+	margin-left: -125px;
+	flex: 0.8;
+}
