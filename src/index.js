@@ -27,6 +27,8 @@ import * as column from './column';
 import * as columns from './columns';
 import * as label from './label';
 import * as labels from './labels';
+import * as label_numeric from './label-numeric';
+import * as labels_numeric from './labels-numeric';
 import * as cover from './cover';
 import * as media_text from './media-text';
 
@@ -71,6 +73,8 @@ registerSelleadsBlocks([
 	columns,
 	label,
 	labels,
+	label_numeric,
+	labels_numeric,
 	cover,
 	media_text
 ]);
