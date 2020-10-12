@@ -1,0 +1,47 @@
+.selleads-label-numeric--object{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.selleads-label-numeric--wrapper{
+    padding: 25px;
+    flex: 0 0 50%;
+}
+
+.selleads-label-numeric--item{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 25px;
+    border-radius: 5px;
+    color: #000;
+    position: relative;
+    z-index: 9;
+}
+
+.selleads-label-numeric-number{
+    position: relative;
+    white-space: nowrap;
+    color: rgba(0,100,255,0.5) !important;
+}
+    .selleads-label-numeric-number--pseudo-before{
+        color: rgba(0,100,255,0.5) !important;
+    }
+    .selleads-label-numeric-number--pseudo-before h1,
+    .selleads-label-numeric-number--pseudo-before h2,
+    .selleads-label-numeric-number--pseudo-before h3{
+        margin: 10px 0 !important;
+    }
+
+.selleads-label-numeric-container{
+    padding: 15px 35px;
+}
+    .selleads-label-numeric-container .selleads-label-numeric--content{
+        color: #555;
+        font-size: 14px;
+        line-height: 1.55rem;
+        letter-spacing: 1.05px;
+        margin-top: 0!important;
+        margin-bottom: 0!important;
+    }
