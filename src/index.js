@@ -23,6 +23,7 @@ import './style.scss';
 
 
 import * as section from './section';
+import * as row from './row';
 import * as column from './column';
 import * as columns from './columns';
 import * as label from './label';
@@ -69,6 +70,7 @@ const registerSelleadsBlocks = (blocks) => {
 
 registerSelleadsBlocks([
 	section,
+	row,
 	column,
 	columns,
 	label,

@@ -18,6 +18,10 @@ export const settings = {
 		"columns": {
 			type: "number",
 			default: 1
+		},
+		"index": {
+			type: "number",
+			default: 1
 		}
 	},
 	"supports": {

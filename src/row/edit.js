@@ -43,7 +43,7 @@ import { compose, withInstanceId, useInstanceId, createHigherOrderComponent} fro
  */
 import { sumBy, merge, mapValues } from 'lodash';
 
-import './editor.css';
+import './edit.css';
 
 /**
  * Returns a column width attribute value rounded to standard precision.
@@ -181,8 +181,9 @@ function ColumnsEditContainer( {
 	updateColumns,
 	clientId,
 	isSelected,
-	isHover
+	...props
 } ) {
+
 	const { verticalAlignment } = attributes;
 
 	const { count } = useSelect(
@@ -235,26 +236,22 @@ function ColumnsEditContainer( {
 				renderAppender={ false }
 			/>
 
-			{ ( isSelected || isHover ) && (
+			{ isSelected  && (
 				<div style={{
 					textAlign: "center",
 					padding: "15px"
 				}}>
 				
-					<ToolbarGroup>
-						<Tooltip text="Dodaj kolumnę">
-							<ToolbarButton
-								onClick={ () => updateColumns( count, (count+1) ) }
-							>
-								<BlockIcon icon={ column } />
-							</ToolbarButton>
-						</Tooltip>
-						<Tooltip text="Dodaj wiersz">
-							<ToolbarButton>
-									<BlockIcon icon={ columns } />
-							</ToolbarButton>
-						</Tooltip>
-					</ToolbarGroup>
+					<Tooltip text="Dodaj kolumnę">
+						<ToolbarButton
+							onClick={ () => {
+								updateColumns( count, (count+1) );
+								// onUpdateColumns(count+1);
+							} }
+						>
+							<BlockIcon icon={ column } />
+						</ToolbarButton>
+					</Tooltip>
 				
 				</div>
 			)}
@@ -435,16 +432,8 @@ function PlaceholderWrapper( { clientId, setAttributes } ) {
 const edit = (props) => {
 
 	const {
-		attributes,
-		setAttributes,
 		clientId
 	} = props;
-
-	const { 
-		backgroundColor, 
-		borderRadius, 
-		padding,
-	} = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -459,47 +448,8 @@ const edit = (props) => {
 
 	return (
 	<>
-		<InspectorControls>
-            <PanelBody>
-
-
-				<ColorPalette
-					label="Kolor tła zbiornika"
-					colors={ colors }
-					value={ backgroundColor }
-					onChange={ ( color ) => setAttributes( { backgroundColor: color } ) }
-				/>
-
-                <RangeControl
-					label="Zaokrąglenie"
-					value={ borderRadius }
-					onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
-					min={ 0 }
-					max={ 50 }
-				/>
-                
-                <RangeControl
-                    label="Wgłębienie"
-                    value={ padding }
-                    onChange={ ( value ) => { setAttributes( { padding: value } ) } }
-                    min={ 0 }
-                    max={ 60 }
-                />
-
-            </PanelBody>
-        </InspectorControls>
-
-		<div className="columns-parent" 
-			style={{
-				padding: `${padding}px`,
-				backgroundColor: backgroundColor,
-				borderRadius: `${borderRadius}px`
-			}}>
-				<div className="columns-container">
-
-					<Component { ...props } />
-
-				</div>
+		<div className="columns">
+			<Component { ...props } />
 		</div>
 	</>
     )

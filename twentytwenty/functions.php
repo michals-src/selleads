@@ -391,7 +391,7 @@ add_action( 'widgets_init', 'twentytwenty_sidebar_registration' );
 function twentytwenty_block_editor_styles() {
 
 	// Enqueue the editor styles.
-	wp_enqueue_style( 'twentytwenty-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), array(), false, 'all' );
+	wp_enqueue_style( 'twentytwenty-block-editor-styles', get_template_directory_uri() .  '/assets/css/editor-style-block.css' , array(), false, 'all' );
 	wp_style_add_data( 'twentytwenty-block-editor-styles', 'rtl', 'replace' );
 
 	// Add inline style from the Customizer.
