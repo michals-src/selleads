@@ -8,37 +8,29 @@ export const name = "selleads/columns";
 
 export const settings = {
 	title: __( 'Selleads - Kolumny' ),
-	description: __( 'Element, który umożliwia wstawianie kolumn' ),
+	description: __( 'Element, który umożliwia wstawianie wybranych elementów (Kolumny tekstowe, Etykiety, Etykiety numeryczne) w strukturze kolumn' ),
 	keywords: [
 		__( 'selleads' ),
 		__( 'section' ),
     ],
     "category": "design",
 	"attributes": {
-		columns: {
+		"columns": {
 			type: "number",
-			default: "2"
+			default: 1
 		},
-		colorParent: {
-			type: "string"
+		"backgroundColor": {
+			type: "string",
+			default: "transparent"
 		},
-		colorColumns: {
-			type: "string"
-		}, 
-		radiusParent: {
-			type: "number"
-		}, 
-		radiusColumns: {
-			type: "number"
-		}, 
-		paddingParent: {
+		"borderRadius": {
+			type: "number",
+			default: 5
+		},
+		"padding": {
 			type: "number",
 			default: 0
-		}, 
-		paddingColumns: {
-			type: "number",
-			default: 0
-		},
+		}
 	},
 	"supports": {
 		"anchor": true,
