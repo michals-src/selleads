@@ -1,4 +1,3 @@
-
 import './edit.css'
 
 import {
@@ -49,10 +48,11 @@ const hex_to_rgb = (hex) => {
 function edit({
     attributes,
     setAttributes,
+    isSelected,
     ...props
 }) {
 
-    
+    console.log(isSelected);
     const {
         backgroundColor,
         borderRadius,
