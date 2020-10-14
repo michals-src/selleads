@@ -89,6 +89,10 @@ export const settings = {
                 }
             }
         ],
+        'transform': {
+            'type': 'string',
+            'default': 'normal'
+        }
 	},
 	"supports": {
 		"anchor": true,

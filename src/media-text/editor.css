@@ -1,5 +1,5 @@
 .selleads-text-image{
-
+	padding: 0 30px;
 }
 
 .selleads-text-image--container{
@@ -11,11 +11,25 @@
 	padding: 30px;
 	background-color: #c4e0ff4d;
 	color: #000;
-	flex: 1;
-}
-	.selleads-text-image--text-content{
-		padding-right: 105px;
+	flex-basis: 66.666667%;
+}	
+	/* .selleads-text-image--container.is-normal .selleads-text-image--text{
+		padding-left: 100px;
 	}
+	.selleads-text-image--container.is-reverse .selleads-text-image--text{
+		padding-right: 100px;
+	} */
+
+	.selleads-text-image--text-content{
+		padding-right: 35px;
+	}
+		.selleads-text-image--container.is-normal .selleads-text-image--text-content{
+			padding-right: 145px;
+		}
+		
+		.selleads-text-image--container.is-reverse .selleads-text-image--text-content{
+			padding-left: 145px;
+		}
 
 	.selleads-text-image--text header h6{
 		text-transform: uppercase;
@@ -31,6 +45,16 @@
 	}
 
 .selleads-text-image--image{
-	margin-left: -125px;
-	flex: 0.8;
+	flex-basis: 33.333334%;
+	position: relative;
+	z-index: 2;
 }
+
+	.selleads-text-image--container.is-normal .selleads-text-image--image{
+		margin-left: -100px;
+		margin-right: 100px;
+	}
+	.selleads-text-image--container.is-reverse .selleads-text-image--image{
+		margin-right: -100px;
+		margin-left: 100px;
+	}

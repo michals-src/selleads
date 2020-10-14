@@ -19,6 +19,8 @@ import {
 	ResizableBox,
 	ToggleControl,
 	withNotices,
+	ToolbarButton,
+	Toolbar
 } from '@wordpress/components';
 
 import { compose, withInstanceId, useInstanceId } from '@wordpress/compose';
@@ -61,10 +63,9 @@ export default function Edit( {
 } ) {
 
 	const {
-		picture
+		picture,
+		transform
 	} = attributes;
-	
-	console.log(attributes)
 
 	const imageContainer = () => {
 		if( ! picture?.url ){
@@ -103,16 +104,46 @@ export default function Edit( {
 
 	return (
 		<>
+			<BlockControls>
+				<Toolbar>
+					<ToolbarButton
+						onClick={() => {
+							setAttributes({
+								'transform': ( transform === 'normal' ) ? 'reverse' : 'normal'
+							})
+						}}
+					>
+						Odbij w poziomie
+					</ToolbarButton>
+				</Toolbar>
+			</BlockControls>
 			<div className="selleads-text-image"> 
-				<div className="selleads-text-image--container">
-					<div className="selleads-text-image--text"> {/* Text */}
-						<Text attributes={attributes} setAttributes={setAttributes}></Text>
-					</div>
+				<div className={`selleads-text-image--container is-${transform}`}>
+
+					{
+						(transform === 'normal') && (
+							<div className="selleads-text-image--text"> {/* Text */}
+								
+								<Text attributes={attributes} setAttributes={setAttributes}></Text>
+							</div>
+						)
+					}
+					
 					<div className="selleads-text-image--image"> {/* Image */}
 						<div>
 							{ imageContainer() }
 						</div>
 					</div>
+					
+					{
+						(transform === 'reverse') && (
+							<div className="selleads-text-image--text"> {/* Text */}
+								
+								<Text attributes={attributes} setAttributes={setAttributes}></Text>
+							</div>
+						)
+					}
+
 				</div>
 			</div>
 		</>
