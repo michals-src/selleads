@@ -18,10 +18,12 @@ import {
     Placeholder,
     Button,
     ColorPalette,
-    ColorPicker
+    ColorPicker,
+    Toolbar, ToolbarButton, ToolbarGroup,
 } from "@wordpress/components";
 
 import { compose, withInstanceId, useInstanceId, createHigherOrderComponent} from '@wordpress/compose';
+import { withDispatch, useDispatch, useSelect } from '@wordpress/data';
 
 import { withFilters } from '@wordpress/components';
 import { addFilter } from '@wordpress/hooks';
@@ -49,6 +51,7 @@ const hex_to_rgb = (hex) => {
 function edit({
     attributes,
     setAttributes,
+    clientId,
     ...props
 }) {
 
@@ -60,6 +63,17 @@ function edit({
         dot,
         content
     } = attributes;
+
+    const {parentsId, neighbours} = useSelect( (select) => {
+
+        let parents = select('core/block-editor').getBlockParents(clientId);
+
+        return {
+            parentsId: parents,
+            neighbours: select('core/block-editor').getBlocks(parents[parents.length - 1])
+        }
+    },[clientId]);
+    const { replaceInnerBlocks } = useDispatch('core/block-editor');
 
     let wrapperStyle = {
         "padding": `${padding?.outer?.value}px`,
@@ -100,6 +114,29 @@ function edit({
 
     return (
         <>
+
+        <BlockControls>
+            <Toolbar>
+                <ToolbarButton
+                    onClick={ ( event ) => {
+                        event.stopPropagation();
+                        
+                        let innerBlocks = [];
+
+                        neighbours.map( (e) => {
+                            console.log(e.clientId !== clientId);
+                            if( e.clientId !== clientId ) return innerBlocks.push(e);
+                        });
+
+                        replaceInnerBlocks( parentsId[parentsId.length-1], innerBlocks, false );
+
+                    } }
+                >
+                    Usuń
+                </ToolbarButton> 
+            </Toolbar>
+        </BlockControls>
+
         <InspectorControls>
           
             <PanelBody title="Zarządanie tłem" initialOpen={false}>
