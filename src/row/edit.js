@@ -28,7 +28,7 @@ import {
 	__experimentalUseBlockWrapperProps as useBlockWrapperProps,
 } from '@wordpress/block-editor';
 import { withDispatch, useDispatch, useSelect } from '@wordpress/data';
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
 
 import { withFilters } from '@wordpress/components';
@@ -184,12 +184,14 @@ function ColumnsEditContainer( {
 	...props
 } ) {
 
-	const { verticalAlignment } = attributes;
+	const { verticalAlignment, index, innerBlock } = attributes;
+	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
-	const { count } = useSelect(
+	const { getInnerBlocks, count } = useSelect(
 		( select ) => {
 			return {
 				count: select( 'core/block-editor' ).getBlockCount( clientId ),
+				getInnerBlocks: select('core/block-editor').getBlocks( clientId )
 			};
 		},
 		[ clientId ]
@@ -198,6 +200,22 @@ function ColumnsEditContainer( {
 	const classes = classnames( {
 		[ `are-vertically-aligned-${ verticalAlignment }` ]: verticalAlignment,
 	} );
+	
+	useEffect(() => {
+
+		let i=1;
+
+		getInnerBlocks.map( (e) => {
+			if( e.name === "selleads/label-numeric" ){
+				updateBlockAttributes( e.clientId, {
+					'withNumber': (index+i)
+				});
+				i++;
+			}
+		});
+
+		//console.log(getInnerBlocks)
+	}, [index, getInnerBlocks])
 
 
 	return (
@@ -213,7 +231,7 @@ function ColumnsEditContainer( {
 					<RangeControl
 						label={ __( 'Columns' ) }
 						value={ count }
-						onChange={ ( value ) => updateColumns( count, value ) }
+						onChange={ ( value ) => updateColumns( count, value, innerBlock ) }
 						min={ 2 }
 						max={ Math.max( 6, count ) }
 					/>
@@ -245,7 +263,7 @@ function ColumnsEditContainer( {
 					<Tooltip text="Dodaj kolumnę">
 						<ToolbarButton
 							onClick={ () => {
-								updateColumns( count, (count+1) );
+								updateColumns( count, (count+1), innerBlock );
 								// onUpdateColumns(count+1);
 							} }
 						>
@@ -293,7 +311,7 @@ const ColumnsEditContainerWrapper = withDispatch(
 		 * @param {number} previousColumns Previous column count.
 		 * @param {number} newColumns      New column count.
 		 */
-		updateColumns( previousColumns, newColumns ) {
+		updateColumns( previousColumns, newColumns, innerBlockName ) {
 			const { clientId } = ownProps;
 			const { replaceInnerBlocks } = dispatch( 'core/block-editor' );
 			const { getBlocks } = registry.select( 'core/block-editor' );
@@ -319,7 +337,7 @@ const ColumnsEditContainerWrapper = withDispatch(
 				innerBlocks = [
 					...getMappedColumnWidths( innerBlocks, widths ),
 					...times( newColumns - previousColumns, () => {
-						return createBlock( 'selleads/column', {
+						return createBlock( innerBlockName, {
 							width: newColumnWidth,
 						} );
 					} ),
@@ -328,7 +346,7 @@ const ColumnsEditContainerWrapper = withDispatch(
 				innerBlocks = [
 					...innerBlocks,
 					...times( newColumns - previousColumns, () => {
-						return createBlock( 'selleads/column' );
+						return createBlock( innerBlockName );
 					} ),
 				];
 			} else {
@@ -366,15 +384,17 @@ const createBlocksFromInnerBlocksTemplate = ( innerBlocksTemplate ) => {
 };
 
 
-function PlaceholderWrapper( { clientId, setAttributes } ) {
+function PlaceholderWrapper( { clientId, attributes, setAttributes } ) {
+
+	const { innerBlock } = attributes;
 
 	const { replaceInnerBlocks } = useDispatch( 'core/block-editor' );
-	const [ columns, setColumns ] = useState(1);
-	const [ type, setType ] = useState('selleads/column');
+	const [ columns, setColumns ] = useState(1); // ilość kolumn
 
 	const onItemsCreate = () => {
 
-		let tree = Array( columns ).fill( [ type ] );
+		// Drzewo elementów do utworzenia
+		let tree = Array( columns ).fill( [ innerBlock ] );
 
 		replaceInnerBlocks(
 			clientId,
@@ -394,7 +414,7 @@ function PlaceholderWrapper( { clientId, setAttributes } ) {
 
 					<SelectControl
 							label={ __( 'Rodzaj elementów' ) }
-							onChange={ ( e ) => { setType( e ) } }
+							onChange={ ( e ) => { setAttributes( { innerBlock: e } ) } }
 							options={ [
 								{ value: 'selleads/column', label: 'Kolumna tekstowa' },
 								{ value: 'selleads/label', label: 'Etykieta z kropką' },

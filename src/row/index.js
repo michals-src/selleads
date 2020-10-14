@@ -19,6 +19,10 @@ export const settings = {
 			type: "number",
 			default: 1
 		},
+		"innerBlock": {
+			"type": "string",
+			"default": "selleads/column"
+		},
 		"index": {
 			type: "number",
 			default: 1
