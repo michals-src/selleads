@@ -84,7 +84,10 @@
 }
 
 .columns-container .columns-inner-block{
-	display: block;
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	padding: 15px;
 }
 
 .columns-container .columns-inner-block .wp-block[data-type="selleads/column"]{
@@ -343,5 +346,3 @@
 	margin-left: -125px;
 	flex: 0.8;
 }
-
-/*# sourceMappingURL=index.css.map*/
