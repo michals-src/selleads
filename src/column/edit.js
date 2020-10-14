@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 
 import { 
 	PanelBody, RangeControl, Notice, Placeholder, 
-	Toolbar, ToolbarButton, ToolbarGroup, Button, ColorPalette, SelectControl
+	Toolbar, ToolbarButton, ToolbarGroup, Button, ColorPalette, SelectControl,
 } from '@wordpress/components';
 import {
     withState
@@ -26,7 +26,7 @@ import {
 
 import { createBlock } from '@wordpress/blocks';
 
-import { useSelect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 
 import { withFilters } from '@wordpress/components';
 import { addFilter } from '@wordpress/hooks';
@@ -85,6 +85,7 @@ const MyBorderRadiusRange = ( { onChange, value } ) => {
 function edit({
     attributes,
     setAttributes,
+    clientId,
     ...props
 }) {
 
@@ -111,6 +112,17 @@ function edit({
     if( ! picture && bgColor !== "undefined" ){
         containerStyle.backgroundColor = bgColor;
     }
+
+    const {parentsId, neighbours} = useSelect( (select) => {
+
+        let parents = select('core/block-editor').getBlockParents(clientId);
+
+        return {
+            parentsId: parents,
+            neighbours: select('core/block-editor').getBlocks(parents[parents.length - 1])
+        }
+    },[clientId]);
+    const { replaceInnerBlocks } = useDispatch('core/block-editor');
 
     // if( width !== null && width !== undefined ){
     //     parentStyle.flex = `0 0 ${width}%`;
@@ -173,6 +185,28 @@ function edit({
     
     return (
         <>
+
+        <BlockControls>
+            <Toolbar>
+                <ToolbarButton
+                    onClick={ ( event ) => {
+                        event.stopPropagation();
+                        
+                        let innerBlocks = [];
+
+                        neighbours.map( (e) => {
+                            console.log(e.clientId !== clientId);
+                            if( e.clientId !== clientId ) return innerBlocks.push(e);
+                        });
+
+                        replaceInnerBlocks( parentsId[parentsId.length-1], innerBlocks, false );
+
+                    } }
+                >
+                    Usuń
+                </ToolbarButton> 
+            </Toolbar>
+        </BlockControls>
 
         <BlockControls>
             <Toolbar>
