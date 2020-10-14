@@ -11,7 +11,9 @@
 }
 
 .columns-container .columns-inner-block{
-	display: block;
+	display: flex;
+	flex: 1;
+    flex-wrap: wrap;
 }
 
 .columns-container .columns-inner-block .wp-block[data-type="selleads/column"]{
