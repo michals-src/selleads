@@ -108,16 +108,17 @@ function edit(props) {
 	} = attributes;
 
 
-	const { getInnerBlocks, hasInnerBlocks } = useSelect( (select) => {
+	const { getInnerBlocks, hasInnerBlocks, InnerBlocksLength } = useSelect( (select) => {
 		return {
 			getInnerBlocks: select('core/block-editor').getBlocks( clientId ),
 			hasInnerBlocks: select('core/block-editor').getBlocks( clientId ).length > 0,
+			InnerBlocksLength: select('core/block-editor').getBlocks( clientId ).length,
 		};
 	}, [clientId]);
 
 
 	const { replaceInnerBlocks } = useDispatch( 'core/block-editor' );
-	const [ columns, setColumns ] = useState(1);
+	const [ columns, setColumns ] = useState(0);
 	const [ type, setType ] = useState('selleads/column');
 
 	const onUpdateColumnsHandler = (e) => {
@@ -126,13 +127,16 @@ function edit(props) {
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 	
-	const [ index, setIndex ] = useState(1);
-
+	const [ index, setIndex ] = useState(0);
+	
+	let x = 0;
 	useEffect(() => {
 		getInnerBlocks.map( (e) => {
-			console.log(e.innerBlocks.length);
+			updateBlockAttributes(e.clientId, { index: x });
+			x=x+e.innerBlocks.length;
 		});
-	}, [getInnerBlocks]);
+	}, [getInnerBlocks, InnerBlocksLength]);
+
 
 	const onItemsCreate = () => {
 
