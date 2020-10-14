@@ -13,7 +13,8 @@
 .columns-container .columns-inner-block{
 	display: flex;
 	flex: 1;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 15px;
 }
 
 .columns-container .columns-inner-block .wp-block[data-type="selleads/column"]{
