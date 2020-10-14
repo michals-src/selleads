@@ -49,7 +49,10 @@ export const settings = {
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		// Poprzez automatyczne numerowanie elementów, ten bloczek może być tylko dodany z poziomy 
+		// Selleads - Kolumny
+		inserter: false
 	},
 	// icon,
 	// transforms,
