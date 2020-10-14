@@ -465,10 +465,43 @@ const edit = (props) => {
 		? ColumnsEditContainerWrapper
 		: PlaceholderWrapper;
 
+	const {parentsId, neighbours} = useSelect( (select) => {
+
+		let parents = select('core/block-editor').getBlockParents(clientId);
+
+		return {
+			parentsId: parents,
+			neighbours: select('core/block-editor').getBlocks(parents[parents.length - 1])
+		}
+	},[clientId]);
+	const { replaceInnerBlocks } = useDispatch('core/block-editor');
 
 	return (
 	<>
 		<div className="columns">
+
+			<BlockControls>
+				<Toolbar>
+					<ToolbarButton
+						onClick={ ( event ) => {
+							event.stopPropagation();
+							
+							let innerBlocks = [];
+
+							neighbours.map( (e) => {
+								console.log(e.clientId !== clientId);
+								if( e.clientId !== clientId ) return innerBlocks.push(e);
+							});
+
+							replaceInnerBlocks( parentsId[parentsId.length-1], innerBlocks, false );
+
+						} }
+					>
+						Usuń
+					</ToolbarButton> 
+				</Toolbar>
+			</BlockControls>
+
 			<Component { ...props } />
 		</div>
 	</>
