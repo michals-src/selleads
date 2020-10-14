@@ -31,7 +31,8 @@ export const settings = {
 	"supports": {
 		"anchor": true,
 		"align": ["full","wide"],
-		"html": false
+		"html": false,
+		"inserter": false
 	},
 	// icon,
 	// transforms,
