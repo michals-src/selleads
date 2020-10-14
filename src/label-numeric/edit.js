@@ -17,10 +17,12 @@ import {
     Placeholder,
     Button,
     ColorPalette,
-    ColorPicker
+    ColorPicker,
+    Toolbar, ToolbarButton, ToolbarGroup,
 } from "@wordpress/components";
 
 import { compose, withInstanceId, useInstanceId, createHigherOrderComponent} from '@wordpress/compose';
+import { withDispatch, useDispatch, useSelect } from '@wordpress/data';
 
 import { withFilters } from '@wordpress/components';
 import { addFilter } from '@wordpress/hooks';
@@ -49,10 +51,10 @@ function edit({
     attributes,
     setAttributes,
     isSelected,
+    clientId,
     ...props
 }) {
 
-    console.log(isSelected);
     const {
         backgroundColor,
         borderRadius,
@@ -62,6 +64,19 @@ function edit({
         withNumber,
         content
     } = attributes;
+
+    const {parentsId, neighbours} = useSelect( (select) => {
+
+        let parents = select('core/block-editor').getBlockParents(clientId);
+
+        return {
+            parentsId: parents,
+            neighbours: select('core/block-editor').getBlocks(parents[parents.length - 1])
+        }
+    },[clientId]);
+
+   
+    const { replaceInnerBlocks } = useDispatch('core/block-editor');
 
     let wrapperStyle = {
         "backgroundColor": backgroundColor,
@@ -82,6 +97,29 @@ function edit({
 
     return (
         <>
+
+        <BlockControls>
+            <Toolbar>
+                <ToolbarButton
+                    onClick={ ( event ) => {
+                        event.stopPropagation();
+                        
+                        let innerBlocks = [];
+
+                        neighbours.map( (e) => {
+                            console.log(e.clientId !== clientId);
+                            if( e.clientId !== clientId ) return innerBlocks.push(e);
+                        });
+
+                        replaceInnerBlocks( parentsId[parentsId.length-1], innerBlocks, false );
+
+                    } }
+                >
+                    Usuń
+                </ToolbarButton> 
+            </Toolbar>
+        </BlockControls>
+
         <InspectorControls>
           
             <PanelBody title="Zarządanie tłem" initialOpen={false}>
@@ -163,7 +201,7 @@ function edit({
 const withClientIdClassName = createHigherOrderComponent( ( BlockListBlock ) => {
     return ( props ) => {
 
-		if ( props.name !== 'selleads/label' ) {
+		if ( props.name !== 'selleads/label-numeric' ) {
 			return <BlockListBlock { ...props } />
 		}
 
