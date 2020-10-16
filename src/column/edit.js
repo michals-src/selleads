@@ -292,7 +292,7 @@ const withClientIdClassName = createHigherOrderComponent( ( BlockListBlock ) => 
 			return <BlockListBlock { ...props } />
 		}
 
-        // console.log(props.attributes.width);
+        //console.log(props.attributes.width);
         const wrapperProps = {};
         wrapperProps.style = {
             flex: `0 0 ${props.attributes.width}%`

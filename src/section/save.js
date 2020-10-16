@@ -15,10 +15,34 @@ import { InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save2() {
+export default function save({
+	attributes
+}) {
+
+	const {
+		align,
+		alignItems,
+		image,
+		color,
+		padding,
+		borderRadius,
+		borderWidth,
+		borderColor
+	} = attributes;
+
+	let styling = {
+		backgroundColor: color,
+		padding: `${padding}px`,
+		borderRadius: `${borderRadius}px`,
+		border: `${borderWidth}px solid ${borderColor}`,
+		alignItems: alignItems,
+	};
+
 	return (
-		<dv>
-			<InnerBlocks.Content />
-		</dv>
+		<div className={`selleads-section align${align}`} style={styling}>
+				<div className="selleads-section-container">
+					<InnerBlocks.Content />
+				</div>
+			</div>
 	);
 }

@@ -15,27 +15,32 @@ import { RichText } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save(
-	attributes
-) {
+export default function save({
+	attributes,
+	...props
+}) {
 
 	const {
 		url,
 		headerTitle,
 		headerSubTitle,
 		titleFontSize,
-		subTitleFontSize
+		subTitleFontSize,
+		align
 	} = attributes;
+
+	let classnames = `selleads-header align${align}`
 
 	return (
 		<>
-		<div className="selleads-header"
-		
+
+		<div className={classnames}
 			 style={{
 				 backgroundColor: "#fff",
-				 backgroundImage: url,
+				 backgroundImage: `url(${url})`,
 				 backgroundRepeat: 'no-repeat',
-				 backgroundPosition: 'center'
+				 backgroundPosition: 'center',
+				 height: '100vh'
 			 }}>
 			<div className="selleads-header--container">
 				<div className="selleads-header--captions">

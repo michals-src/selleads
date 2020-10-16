@@ -235,8 +235,8 @@ function Edit(
 			</PanelBody>
 		</InspectorControls>
 
-		{ noticeUI }
-        <Button isSecondary onClick={ addError }>Add error</Button>
+		{/* { noticeUI }
+        <Button isSecondary onClick={ addError }>Add error</Button> */}
 
 
 		<div className="selleads-header"
