@@ -29,6 +29,7 @@ export default function save({
 		borderWidth,
 		borderColor
 	} = attributes;
+	
 
 	let styling = {
 		backgroundColor: color,

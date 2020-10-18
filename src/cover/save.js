@@ -26,20 +26,28 @@ export default function save({
 		headerSubTitle,
 		titleFontSize,
 		subTitleFontSize,
-		align
+		align,
+		focalPoint
 	} = attributes;
 
 	let classnames = `selleads-header align${align}`
+
+	const bgPos = focalPoint ?
+	{
+		'backgroundPosition': `${(focalPoint.x)*100}% ${(focalPoint.y)*100}%`,
+	} :
+	{
+		backgroundPosition: 'center'
+	};
 
 	return (
 		<>
 
 		<div className={classnames}
-			 style={{
+			 style={{ ... bgPos,
 				 backgroundColor: "#fff",
 				 backgroundImage: `url(${url})`,
 				 backgroundRepeat: 'no-repeat',
-				 backgroundPosition: 'center',
 				 height: '100vh'
 			 }}>
 			<div className="selleads-header--container">

@@ -28,42 +28,38 @@ import {
 	RichText
 } from '@wordpress/block-editor';
 
+const INNER_BLOCKS_TEMPLATE = [
+    [
+		'core/heading',
+		{
+			level: 6,
+            placeholder: 'OPIS',
+            className: 'selleads-label--header',
+		},
+	],
+	[
+		'core/heading',
+		{
+			level: 4,
+            placeholder: 'Nagłówek',
+            className: 'selleads-label--header',
+		},
+    ],
+];
+
 function Text({
     attributes,
     setAttributes
 }) {
 
     const {
-        subtitle,
-		title,
-		paragraph
+		content,
+		contentFontSize
     } = attributes;
 
 
-	const titleFontSizes = [
-		{
-			name: __( 'Small' ),
-			slug: 'small',
-			size: 48,
-		},
-		{
-			name: __( 'Big' ),
-			slug: 'big',
-			size: 60,
-		},
-		{
-			name: __( 'Large' ),
-			slug: 'Large',
-			size: 72,
-		},
-		{
-			name: __( 'Large' ),
-			slug: 'Extra',
-			size: 82,
-		},
-	];
 
-	const subTitleFontSizes = [
+	const fontSizes = [
 		{
 			name: __( 'Small' ),
 			slug: 'small',
@@ -72,17 +68,17 @@ function Text({
 		{
 			name: __( 'Big' ),
 			slug: 'big',
-			size: 21,
+			size: 18,
 		},
 		{
 			name: __( 'Large' ),
 			slug: 'Large',
-			size: 32,
+			size: 21,
 		},
 		{
-			name: __( 'Large' ),
+			name: __( 'Huge' ),
 			slug: 'Extra',
-			size: 44,
+			size: 24,
 		},
 	];
 
@@ -93,68 +89,7 @@ function Text({
 
 
         <InspectorControls>
-			<PanelBody title="Edycja podpisu" initialOpen={ false }>
-				<PanelRow>
-					<div>
-						<div>
-							<p>Rozmiar czcionki</p>
-						</div>
-						<div>
-							<FontSizePicker
-								fontSizes={ subTitleFontSizes }
-								value={ subtitle?.fontSize }
-								fallbackFontSize={18}
-								onChange={ ( e ) => {
-									setAttributes( { subtitle: { ...subtitle, fontSize: e } } );
-								} }
-							/>
-						</div>
-					</div>
-				</PanelRow>
-				<PanelRow>
-					<div>
-						<p>Kolor tekstu</p>
-						<ColorPicker
-							color={ subtitle?.color }
-							onChangeComplete={ ( e ) => setAttributes( { subtitle: { ...subtitle, color: e } } ) }
-							disableAlpha
-						/>
-					</div>
-				</PanelRow>
-			</PanelBody>
-
-			<PanelBody title="Edycja nagłówka" initialOpen={ false }>
-				<PanelRow>
-					<div>
-						<div>
-							<p>Rozmiar czcionki</p>
-						</div>
-						<div>
-							<FontSizePicker
-								fontSizes={ titleFontSizes }
-								value={ title?.fontSize }
-								fallbackFontSize={24}
-								onChange={ ( e ) => {
-									setAttributes( { title: { ...title, fontSize: e } } );
-								} }
-							/>
-						</div>
-					</div>
-				</PanelRow>
-				<PanelRow>
-					<div>
-						<p>Kolor tekst</p>
-						<ColorPicker
-							color={ title?.color }
-							onChangeComplete={ ( e ) => setAttributes( { title: { ...title, color: e } } ) }
-							disableAlpha
-						/>
-					</div>
-				</PanelRow>
-			</PanelBody>
-
 			<PanelBody title="Edycja tekstu" initialOpen={ false }>
-
 				<PanelRow>
 					<div>
 						<div>
@@ -162,48 +97,15 @@ function Text({
 						</div>
 						<div>
 							<FontSizePicker
-								fontSizes={ subTitleFontSizes }
-								value={ paragraph?.fontSize }
+								fontSizes={ fontSizes }
+								value={ contentFontSize }
 								fallbackFontSize={14}
 								onChange={ ( e ) => {
-									setAttributes( { paragraph: { ...paragraph, fontSize: e } } );
+									setAttributes( { contentFontSize: e } );
 								} }
 							/>
 						</div>
 					</div>
-				</PanelRow>
-				<PanelRow>
-					<ColorPicker
-							color={ paragraph?.color }
-							onChangeComplete={ ( e ) => setAttributes( { paragraph: { ...paragraph, color: e } } ) }
-							disableAlpha
-						/>
-				</PanelRow>
-
-			</PanelBody>
-
-			<PanelBody title="Ustawienia obrazu" initialOpen={ false }>
-				{/* <FocalPointPicker
-					label={ __( 'Focal point picker' ) }
-					url={ url }
-					value={ focalPoint }
-					onChange={ ( newFocalPoint ) =>
-						setAttributes( {
-							focalPoint: newFocalPoint,
-						} )
-					}
-				/> */}
-
-				<p>Rozmiar dolnego tekstu</p>
-				<PanelRow>
-					<FontSizePicker
-						fontSizes={ titleFontSizes }
-						value={ title?.fontSize }
-						fallbackFontSize={24}
-						onChange={ ( e ) => {
-							setAttributes( { title: { ...title, fontSize: e } } );
-						} }
-					/>
 				</PanelRow>
 			</PanelBody>
 		</InspectorControls>
@@ -213,40 +115,26 @@ function Text({
             <div className="selleads-text-image--text-content">
                 <div>
                     <header>
-                        <RichText
-                                style={{
-                                    fontSize: `${subtitle?.fontSize}px`,
-									color: subtitle?.color?.hex
-                                }}
-                                tagName="h6"
-                                placeholder="subtitle"
-                                value={subtitle?.value}
-                                onChange={ (e) => setAttributes({ subtitle: { ...subtitle, 'value': e } }) }
-                                ></RichText>
-                        <RichText 
-                                style={{
-                                    fontSize: `${title?.fontSize}px`,
-									color: title?.color?.hex
-                                }}
-                                tagName="h3"
-                                placeholder="Title"
-                                value={title?.value}
-                                onChange={ (e) => setAttributes({ title: { ...title, 'value': e } }) }
-                                ></RichText>
+						<InnerBlocks
+							templateLock="all"
+							__experimentalPassedProps={ {
+								// className: 'selleads-label--header',
+							} }
+							template={ INNER_BLOCKS_TEMPLATE }
+						/>
                     </header>
                 </div>
                 <div>
                     <div>
-                    <RichText 
-							style={{
-								fontSize: `${paragraph?.fontSize}px`,
-								color: paragraph?.color?.hex
-							}}
-                            tagName="p"
-                            placeholder="Paragraph"
-                            value={paragraph?.value}
-                            onChange={ (e) => setAttributes({ 'paragraph': { 'value': e } }) }
-                            ></RichText>
+                    	<RichText 
+								style={{
+									fontSize: `${contentFontSize}px`
+								}}
+								tagName="p"
+								placeholder="Część opisowa"
+								value={ content }
+								onChange={ (e) => setAttributes({ 'content': e }) }
+                            />
                     </div>
                 </div>
             </div>

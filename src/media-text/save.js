@@ -15,9 +15,9 @@ import { RichText } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save( 
+export default function save({
 	attributes
-) {
+}) {
 
 	const {
 		subtitle,
@@ -38,11 +38,11 @@ export default function save(
 										tagName="h6"
 										placeholder="SUBTITLE"
 										value={subtitle?.value}
-										></RichText.Content>
+										/>
 								<RichText.Content tagName="h3"
 										placeholder="Title"
 										value={title?.value}
-										></RichText.Content>
+										/>
 							</header>
 						</div>
 						<div>
@@ -50,7 +50,7 @@ export default function save(
 							<RichText.Content tagName="p"
 									placeholder="Paragraph"
 									value={paragraph?.value}
-									></RichText.Content>
+									/>
 							</div>
 						</div>
 					</div>

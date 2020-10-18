@@ -5,6 +5,11 @@
  */
 import { __ } from '@wordpress/i18n';
 import Text from './text';
+import colors from '.././colors.js';
+import {
+	ItemControls,
+	BackgroundColor
+} from '.././block-controls';
 
 import { useEffect, useRef, useState } from '@wordpress/element';
 
@@ -33,6 +38,7 @@ import {
 	MediaReplaceFlow,
 	withColors,
 	ColorPalette,
+	ColorPicker,
 	RichText
 } from '@wordpress/block-editor';
 import { withDispatch } from '@wordpress/data';
@@ -56,22 +62,27 @@ import './editor.css';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { 
-	attributes,
-	setAttributes,
-	className 
-} ) {
+export default function Edit(props) {
+	
+	const {
+		attributes,
+		setAttributes
+	} = props;
 
 	const {
-		picture,
+		backgroundColor,
+		padding,
+		borderRadius,
+		imageId,
+		imageUrl,
 		transform
 	} = attributes;
 
 	const imageContainer = () => {
-		if( ! picture?.url ){
+		if( ! imageUrl ){
 			return (
 				<MediaPlaceholder 
-					onSelect={ (e) => setAttributes({ picture: { ...picture, url: e.url, id: e.id } }) }
+					onSelect={ (e) => setAttributes({ imageUrl: e.url, imageId: e.id  }) }
 					allowedTypes={ ['image'] }
 					accept="image/*"
 					labels={ {
@@ -87,15 +98,15 @@ export default function Edit( {
 				<>
 					<BlockControls>
 						<MediaReplaceFlow
-								mediaId={ picture?.id }
-								mediaURL={ picture?.url }
+								mediaId={ imageId }
+								mediaURL={ imageUrl }
 								allowedTypes={ ['image'] }
 								accept="image/*"
-								onSelect={ (e) => setAttributes({ picture: { ...picture, url: e.url, id: e.id } }) }
+								onSelect={ (e) => setAttributes({ imageUrl: e.url, imageId: e.id  }) }
 							/>
 					</BlockControls>
 					<figure>
-						<img src={picture?.url}></img>
+						<img src={imageUrl}></img>
 					</figure>
 				</>
 			);
@@ -117,14 +128,64 @@ export default function Edit( {
 					</ToolbarButton>
 				</Toolbar>
 			</BlockControls>
+
+			<InspectorControls>
+				<PanelBody title="Ustawienia główne" initialOpen={ false }>
+					<PanelRow>
+						<PanelRow>
+						<label className="components-custom-select-control__label">
+							Kolor tła
+						</label>
+						</PanelRow>
+						<ColorPalette
+							label="Kolor tła zbiornika"
+							colors={ colors }
+							value={ backgroundColor }
+							onChange={ ( color ) => setAttributes( { backgroundColor: color } ) }
+						/>
+					</PanelRow>
+					<PanelRow>
+						<RangeControl
+							label="Wgłębienie"
+							value={ padding }
+							onChange={ ( e ) => setAttributes( { padding: e } ) }
+							min={ 0 }
+							max={ 50 }
+						/>
+						<RangeControl
+							label="Zaokrąglenie"
+							value={ borderRadius }
+							onChange={ ( e ) => setAttributes( { borderRadius: e } ) }
+							min={ 0 }
+							max={ 50 }
+						/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
+			
+			{/* {
+				['BackgroundColor', 'BorderRadius', 'Padding'].map( (Control) => {
+					return (
+						<Control clientId={clientId} />
+					)
+				})
+			} */}
+
+			<ItemControls>
+				<BackgroundColor />
+			</ItemControls>
+
 			<div className="selleads-text-image"> 
 				<div className={`selleads-text-image--container is-${transform}`}>
 
 					{
 						(transform === 'normal') && (
-							<div className="selleads-text-image--text"> {/* Text */}
-								
-								<Text attributes={attributes} setAttributes={setAttributes}></Text>
+							<div className="selleads-text-image--text"
+								style={{
+									backgroundColor: backgroundColor,
+									padding: padding
+								}}> {/* Text */}
+									<Text {...props}></Text>
 							</div>
 						)
 					}
@@ -139,7 +200,7 @@ export default function Edit( {
 						(transform === 'reverse') && (
 							<div className="selleads-text-image--text"> {/* Text */}
 								
-								<Text attributes={attributes} setAttributes={setAttributes}></Text>
+								<Text {...props}></Text>
 							</div>
 						)
 					}

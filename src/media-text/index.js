@@ -15,83 +15,34 @@ export const settings = {
     ],
     "category": "design",
 	"attributes": {
-        'background': [
-            {
-                'color': {
-                    type: 'string',
-                    default: '#d2dee4'
-                },
-                'radius': {
-                    type: 'string',
-                    default: '5'
-                },
-                'padding': {
-                    type: 'string',
-                    default: '25'
-                },
-            }
-        ],
-        'subtitle': [
-            {
-                'color': {
-                    type: 'string',
-                    default: '#000000'
-                },
-                'fontSize': {
-                    type: 'string',
-                    default: '18px'
-                },
-                'value': {
-                    type: 'string',
-                    selector: 'h6'
-                }
-            }
-        ],
-        'title': [
-            {
-                'color': {
-                    type: 'string',
-                    default: '#000000'
-                },
-                'fontSize': {
-                    type: 'string',
-                    default: '24px'
-                },
-                'value': {
-                    type: 'string',
-                    selector: 'h3'
-                }
-            }
-        ],
-        'paragraph': [
-            {
-                'color': {
-                    type: 'string',
-                    default: '#000000'
-                },
-                'fontSize': {
-                    type: 'string',
-                    default: '14px'
-                },
-                'value': {
-                    type: 'string',
-                    selector: 'p'
-                }
-            }
-        ],
-        'picture': [
-            {
-                'id': {
-                    type: 'number'
-                },
-                'url': {
-                    type: 'string'
-                }
-            }
-        ],
-        'transform': {
-            'type': 'string',
-            'default': 'normal'
+        "backgroundColor": {
+            type: 'string',
+        },
+        "borderRadius": {
+            type: 'number',
+            default: '0'
+        },
+        "padding": {
+            type: "number",
+            default: "25"
+        },
+        "content": {
+            type: 'string',
+            selector: 'p'
+        },
+        "contentFontSize": {
+            type: 'number',
+            selector: '14'
+        },
+        "imageId": {
+            type: 'number'
+        },
+        "imageUrl": {
+            type: 'string'
+        },
+        "transform": {
+            type: "string",
+            default: "normal"
         }
 	},
 	"supports": {
